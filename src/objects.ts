@@ -1,3 +1,4 @@
+import { PassThrough } from "stream";
 import { Question, QuestionType } from "./interfaces/question";
 
 /**
@@ -10,7 +11,16 @@ export function makeBlankQuestion(
     name: string,
     type: QuestionType
 ): Question {
-    return {};
+    return {
+        id: id,
+        name: name,
+        type: type,
+        options: [],
+        expected: "",
+        points: 1,
+        published: false,
+        body: ""
+    };
 }
 
 /**
@@ -21,6 +31,10 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+    let answer_cleaned = answer.trim().toLowerCase();
+    if (answer_cleaned === question.expected.toLocaleLowerCase()) {
+        return true;
+    }
     return false;
 }
 
@@ -31,7 +45,16 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    return false;
+    if (question.type === "multiple_choice_question") {
+        // must be one of the question.options which is an array
+        if (question.options.includes(answer)) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return true;
+    }
 }
 
 /**
@@ -41,7 +64,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return "";
+    return `${question.id}: ${question.name.slice(0, 10)}`;
 }
 
 /**
@@ -62,7 +85,16 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
-    return "";
+    let nameNbody = `# ${question.name}\n${question.body}`;
+    let accum: string = "";
+    if (question.type === "multiple_choice_question") {
+        question.options.forEach((item: string) => {
+            accum += `\n- ${item}`;
+        });
+        let full_text: string = nameNbody + accum;
+        return full_text;
+    }
+    return nameNbody;
 }
 
 /**
