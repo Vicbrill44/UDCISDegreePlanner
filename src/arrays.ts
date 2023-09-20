@@ -10,7 +10,7 @@ export function bookEndList(numbers: number[]): number[] {
     } else if (numbers.length === 1) {
         return [...numbers, ...numbers];
     } else {
-        const firstlast = [numbers.at(0), numbers.at(numbers.length - 1)];
+        const firstlast = [numbers[0], numbers[numbers.length - 1]];
         return firstlast;
     }
 }
@@ -63,16 +63,14 @@ export const removeDollars = (amounts: string[]): number[] => {
 export const shoutIfExclaiming = (messages: string[]): string[] => {
     const uppercase = messages.map((message: string): string => {
         if (message.endsWith("!")) {
-            let uppered = message.toUpperCase();
+            const uppered = message.toUpperCase();
             return uppered;
         }
         return message;
     });
-    const removeQuestion = uppercase.filter((message: string): string => {
-        if (!message.endsWith("?")) {
-            return message;
-        }
-    });
+    const removeQuestion = uppercase.filter(
+        (message: string) => !message.endsWith("?")
+    );
     return removeQuestion;
 };
 

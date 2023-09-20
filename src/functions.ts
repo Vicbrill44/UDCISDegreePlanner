@@ -4,7 +4,7 @@
  *      C = (F - 32) * 5/9
  */
 export function fahrenheitToCelius(temperature: number): number {
-    let c: number = (temperature - 32) * (5 / 9);
+    const c: number = (temperature - 32) * (5 / 9);
     return c;
 }
 
@@ -13,11 +13,11 @@ export function fahrenheitToCelius(temperature: number): number {
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    let first_add: boolean = first > 0;
-    let second_add: boolean = second > 0;
-    let third_add: boolean = third > 0;
+    const first_add: boolean = first > 0;
+    const second_add: boolean = second > 0;
+    const third_add: boolean = third > 0;
 
-    let result: number = 0;
+    let result = 0;
 
     if (first_add) {
         result = result + first;
@@ -37,8 +37,8 @@ export function add3(first: number, second: number, third: number): number {
  * mark added to the end.
  */
 export function shout(message: string): string {
-    let uppercased: string = message.toUpperCase();
-    let exclaim: string = `${uppercased}!`;
+    const uppercased: string = message.toUpperCase();
+    const exclaim = `${uppercased}!`;
     return exclaim;
 }
 
@@ -47,7 +47,7 @@ export function shout(message: string): string {
  * mark. Do not use an `if` statement in solving this question.
  */
 export function isQuestion(message: string): boolean {
-    let result: boolean = message.endsWith("?");
+    const result: boolean = message.endsWith("?");
     return result;
 }
 
