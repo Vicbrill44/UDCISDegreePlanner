@@ -6,7 +6,7 @@ import { Question, QuestionType } from "./interfaces/question";
  * that are `published`.
  */
 export function getPublishedQuestions(questions: Question[]): Question[] {
-    return [];
+    return questions.filter((question: Question) => question.published);
 }
 
 /**
@@ -15,7 +15,12 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    return [];
+    return questions.filter(
+        (question: Question) =>
+            question.body.length ||
+            question.expected.length ||
+            question.options.length
+    );
 }
 
 /***
@@ -26,7 +31,14 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
-    return null;
+    const id_index: number = questions.findIndex(
+        (question: Question): boolean => question.id === id
+    );
+    if (id_index !== -1) {
+        return questions[id_index];
+    } else {
+        return null;
+    }
 }
 
 /**
@@ -34,7 +46,7 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    return questions.filter((question: Question) => question.id !== id);
 }
 
 /***
@@ -42,21 +54,36 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const names: string[] = questions.map((question: Question): string => {
+        return question.name;
+    });
+
+    return names;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    const sum: number = questions.reduce(
+        (accu: number, question: Question) => accu + question.points,
+        0
+    );
+    return sum;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    const published: Question[] = questions.filter(
+        (question: Question) => question.published
+    );
+    const sum: number = published.reduce(
+        (accu: number, question: Question) => accu + question.points,
+        0
+    );
+    return sum;
 }
 
 /***
@@ -77,7 +104,13 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    const csv: string = questions.reduce((csv, question) => {
+        csv += `${question.id},${question.name},${question.options.length},${question.points},${question.published}\n`;
+        return csv;
+    }, "");
+    const csv_w_header: string =
+        "id,name,options,points,published\n" + csv.trimEnd();
+    return csv_w_header;
 }
 
 /**
@@ -86,7 +119,14 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    return [];
+    return questions.map((question: Question): Answer => {
+        return {
+            questionId: question.id,
+            text: "",
+            submitted: false,
+            correct: false
+        };
+    }, []);
 }
 
 /***
@@ -94,7 +134,9 @@ export function makeAnswers(questions: Question[]): Answer[] {
  * each question is now published, regardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
-    return [];
+    return questions.map((question: Question): Question => {
+        return { ...question, published: true };
+    }, []);
 }
 
 /***
