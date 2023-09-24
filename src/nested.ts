@@ -144,7 +144,16 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    return (
+        questions.every(
+            (question: Question): boolean =>
+                question.type === "multiple_choice_question"
+        ) ||
+        questions.every(
+            (question: Question): boolean =>
+                question.type === "short_answer_question"
+        )
+    );
 }
 
 /***
@@ -158,7 +167,19 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    return [
+        ...questions,
+        {
+            id: id,
+            name: name,
+            type: type,
+            options: [],
+            expected: "",
+            points: 1,
+            published: false,
+            body: ""
+        }
+    ];
 }
 
 /***
@@ -171,7 +192,12 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    return questions.map((question: Question): Question => {
+        if (question.id === targetId) {
+            return { ...question, name: newName };
+        }
+        return { ...question };
+    }, []);
 }
 
 /***
@@ -186,7 +212,19 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return [];
+    return questions.map((question: Question): Question => {
+        if (question.id === targetId) {
+            return {
+                ...question,
+                type: newQuestionType,
+                options:
+                    newQuestionType !== "multiple_choice_question"
+                        ? []
+                        : [...question.options]
+            };
+        }
+        return { ...question };
+    }, []);
 }
 
 /**
@@ -205,7 +243,26 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    return questions.map((question: Question): Question => {
+        if (question.id === targetId) {
+            if (targetOptionIndex === -1) {
+                return {
+                    ...question,
+                    options: [...question.options, newOption]
+                };
+            } else {
+                return {
+                    ...question,
+                    options: [
+                        ...question.options.slice(0, targetOptionIndex),
+                        newOption,
+                        ...question.options.slice(targetOptionIndex + 1)
+                    ]
+                };
+            }
+        }
+        return { ...question };
+    });
 }
 
 /***
@@ -219,5 +276,19 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const index: number = questions.findIndex((question: Question) => {
+        return question.id === targetId;
+    });
+
+    const newQ: Question = {
+        ...questions[index],
+        id: newId,
+        published: false,
+        name: `Copy of ${questions[index].name}`
+    };
+    return [
+        ...questions.slice(0, index + 1),
+        newQ,
+        ...questions.slice(index + 1)
+    ];
 }
