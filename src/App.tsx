@@ -24,7 +24,7 @@ function App(): JSX.Element {
             </p>
             <p>Victor Vasquez</p>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            {<DoubleHalf></DoubleHalf>}
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
