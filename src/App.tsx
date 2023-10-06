@@ -29,9 +29,6 @@ function App(): JSX.Element {
             </p>
             <p>Victor Vasquez</p>
             <hr></hr>
-<<<<<<< HEAD
-            {<DoubleHalf></DoubleHalf>}
-=======
             <CheckAnswer expectedAnswer="42"></CheckAnswer>
             <hr></hr>
             <GiveAttempts></GiveAttempts>
@@ -45,8 +42,7 @@ function App(): JSX.Element {
                 expectedAnswer="b"
             ></MultipleChoiceQuestion>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
->>>>>>> upstream/task-forms
+            <DoubleHalf></DoubleHalf>
             <hr></hr>
             <ChooseTeam></ChooseTeam>
             <hr></hr>
