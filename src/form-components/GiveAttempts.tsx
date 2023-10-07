@@ -42,10 +42,6 @@ function UseButton({
 export function GiveAttempts(): JSX.Element {
     const [attemptsLeft, setAttemptsLeft] = useState<string>("3");
     const [requestedAttempts, setRequestedAttempts] = useState<string>("");
-
-    function updateAttemptsLeft(event: React.ChangeEvent<HTMLInputElement>) {
-        setAttemptsLeft(event.target.value);
-    }
     function updateRequestedAttempts(
         event: React.ChangeEvent<HTMLInputElement>
     ) {
