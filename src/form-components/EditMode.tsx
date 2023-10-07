@@ -17,15 +17,16 @@ export function EditMode(): JSX.Element {
         setEditable(event.target.checked);
     }
 
+    const studentStatus = isStudent ? "a student" : "not a student";
+    const nameDisplay = isEditable ? userName : "Your Name";
+    const label = `${nameDisplay} is ${studentStatus}`;
+
     return (
         <div>
-            <Form.Check
-                type="switch"
-                id="is-editable"
-                label="Edit?"
-                checked={isEditable}
-                onChange={updateEditable}
-            />
+            <Form.Group controlId="formYourName">
+                <Form.Label>Name:</Form.Label>
+                <Form.Control value={userName} onChange={updateName} />
+            </Form.Group>
             <Form.Check
                 type="checkbox"
                 id="is-student"
@@ -33,19 +34,14 @@ export function EditMode(): JSX.Element {
                 checked={isStudent}
                 onChange={updateIsStudent}
             />
-            {!isEditable ? (
-                `Your Name is ${isStudent ? "a student" : "not a student"}`
-            ) : (
-                <div>
-                    <Form.Group controlId="formYourName">
-                        <Form.Label>Name:</Form.Label>
-                        <Form.Control value={userName} onChange={updateName} />
-                    </Form.Group>
-                    {`${userName} is ${
-                        isStudent ? "a student" : "not a student"
-                    }`}
-                </div>
-            )}
+            <Form.Check
+                type="switch"
+                id="is-editable"
+                label="Edit?"
+                checked={isEditable}
+                onChange={updateEditable}
+            />
+            {label}
         </div>
     );
 }
