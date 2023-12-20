@@ -12,12 +12,14 @@ export function DpView({
     dp,
     resetView,
     deleteDp,
-    editDp
+    editDp,
+    allCourses
 }: {
     dp: DegreePlan;
     resetView: () => void;
     deleteDp: (id: number) => void;
     editDp: (id: number, newDp: DegreePlan) => void;
+    allCourses: Course[];
 }): JSX.Element {
     const [showEditModal, setShowEditModal] = useState<boolean>(false);
     const handleCloseModal = () => setShowEditModal(false);
@@ -64,9 +66,9 @@ export function DpView({
                             {dp.semestersList.map((semester: Semester) => (
                                 <td key={semester.title}>
                                     {semester.courses.map((course: Course) => (
-                                        <div key={course.courseCode}>
+                                        <div key={course.code}>
                                             <Card bg="light">
-                                                <p>{course.title}</p>
+                                                <p>{course.name}</p>
                                             </Card>
                                             <Table>
                                                 <Card bg="info" text="dark">
@@ -78,9 +80,7 @@ export function DpView({
                                                             </p>
                                                             <p>
                                                                 Course Code:{" "}
-                                                                {
-                                                                    course.courseCode
-                                                                }
+                                                                {course.code}
                                                             </p>
                                                             <p
                                                                 style={{
@@ -90,9 +90,7 @@ export function DpView({
                                                             >
                                                                 Course
                                                                 Description:{" "}
-                                                                {
-                                                                    course.courseDescription
-                                                                }
+                                                                {course.descr}
                                                             </p>
                                                         </td>
                                                     </tbody>
@@ -132,6 +130,7 @@ export function DpView({
                 handleClose={handleCloseModal}
                 dp={dp}
                 editDp={editDp}
+                allCourses={allCourses}
             ></EditingDp>
         </div>
     );

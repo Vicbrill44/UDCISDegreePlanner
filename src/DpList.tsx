@@ -3,15 +3,18 @@ import React, { useState } from "react";
 import { DegreePlan } from "./interfaces/degreeplan";
 import { DpCard } from "./DpCard";
 import { DpView } from "./DpView";
+import { Course } from "./interfaces/course";
 
 export function DpList({
     dp,
     deleteDp,
-    editDp
+    editDp,
+    allCourses
 }: {
     dp: DegreePlan[];
     deleteDp: (id: number) => void;
     editDp: (id: number, newDp: DegreePlan) => void;
+    allCourses: Course[];
 }): JSX.Element {
     const [displayId, setDisplayId] = useState<null | number>(null);
     const handleDpView = (id: number) => {
@@ -31,6 +34,7 @@ export function DpList({
                             resetView={resetDisplayId}
                             deleteDp={deleteDp}
                             editDp={editDp}
+                            allCourses={allCourses}
                         ></DpView>
                     );
                 } else {
