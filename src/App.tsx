@@ -11,6 +11,7 @@ import { DpList } from "./DpList";
 import { AddDpSemestersCoursesModal } from "./AddDpSemestersCoursesModal";
 import all_courses_json from "./data/catalog.json";
 import { Course } from "./interfaces/course";
+//import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function App(): JSX.Element {
     //load in courses
@@ -123,20 +124,6 @@ export function App(): JSX.Element {
                     addDp={addDp}
                     allCourses={allCourses}
                 ></AddDpSemestersCoursesModal>
-                <div>
-                    <Import
-                        importData={importData}
-                        setImportData={setImportData}
-                    />
-                    <GenerateCSV
-                        data={[
-                            ["First Name", "Last Name"],
-                            ["Nicky", "Reigel"],
-                            ["Aidan", "Bell"]
-                        ]}
-                        filename="testexport"
-                    />
-                </div>
             </div>
         </div>
     );

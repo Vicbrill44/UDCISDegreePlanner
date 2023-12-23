@@ -6,6 +6,7 @@ import { DegreePlan } from "./interfaces/degreeplan";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Course } from "./interfaces/course";
 import { Semester } from "./interfaces/semester";
+import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function EditingDp({
     show,
@@ -26,8 +27,6 @@ export function EditingDp({
     const [selectedSemesterId, setSelectedSemesterId] = useState<number | null>(
         null
     );
-    const [selectedCourseCode, setSelectedCourseCode] = useState<string>("");
-    const [courseList, setCourseList] = useState<Course[]>(allCourses);
 
     const [, setNewCourse] = useState<Course>({
         code: "",
@@ -87,10 +86,10 @@ export function EditingDp({
         setSemesters(modifiedSemester);
     }
 
-    const addCourse = (semesterId: number) => {
-        if (selectedSemesterId !== null && selectedCourseCode) {
-            const selectedCourse = courseList.find(
-                (course) => course.code === selectedCourseCode
+    const addCourse = (semesterId: number, courseCode: string) => {
+        if (selectedSemesterId !== null && courseCode) {
+            const selectedCourse: Course | undefined = allCourses.find(
+                (course) => course.code === courseCode
             );
             if (selectedCourse) {
                 updateSemesterCredits(semesterId, selectedCourse.credits);
@@ -104,7 +103,6 @@ export function EditingDp({
                             : semester
                     )
                 );
-                setSelectedCourseCode(""); // Reset the selected course code
             }
         }
     };
@@ -165,7 +163,6 @@ export function EditingDp({
     const handleCloseModal = () => {
         setSemesters(dp.semestersList);
         setTitle(dp.title);
-        setSelectedCourseCode("");
         handleClose();
     };
     const saveChanges = () => {
@@ -175,12 +172,11 @@ export function EditingDp({
             totalCredits: totDpSemesterCredits(),
             semestersList: semesters
         };
-        setSelectedCourseCode("");
         editDp(dp.id, newDp);
         handleClose();
     };
     return (
-        <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal show={show} onHide={handleClose} animation={false} size="lg">
             <Modal.Header closeButton>
                 <Modal.Title>Add New Degree Plan</Modal.Title>
             </Modal.Header>
@@ -264,33 +260,13 @@ export function EditingDp({
                                     </button>
                                     {selectedSemesterId === semester.id && (
                                         <div>
-                                            <select
-                                                value={selectedCourseCode}
-                                                onChange={(e) =>
-                                                    setSelectedCourseCode(
-                                                        e.target.value
-                                                    )
+                                            <CourseSearchDropDown
+                                                allCourses={allCourses}
+                                                updateCourseCodeAndAddCourse={
+                                                    addCourse
                                                 }
-                                            >
-                                                <option value="">
-                                                    Select a course
-                                                </option>
-                                                {courseList.map((course) => (
-                                                    <option
-                                                        key={course.code}
-                                                        value={course.code}
-                                                    >
-                                                        {course.code}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            <button
-                                                onClick={() =>
-                                                    addCourse(semester.id)
-                                                }
-                                            >
-                                                Enter
-                                            </button>
+                                                semesterId={semester.id}
+                                            ></CourseSearchDropDown>
                                         </div>
                                     )}
                                 </li>
