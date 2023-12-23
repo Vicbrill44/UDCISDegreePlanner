@@ -12,7 +12,7 @@
         at header
         at div
         at div
-        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:36:49)
+        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:17:49)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -29,7 +29,7 @@
         at header
         at div
         at div
-        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:36:49)
+        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:17:49)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -40,7 +40,7 @@
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (98 ms)
+  ✕ renders the course name somewhere (124 ms)
 
   ● renders the course name somewhere
 
@@ -135,40 +135,6 @@ FAIL src/App.test.tsx
             [36m>[39m
               [0mSave Degree Plans[0m
             [36m</button>[39m
-            [36m<div>[39m
-              [36m<div[39m
-                [33mstyle[39m=[32m"text-align: center;"[39m
-              [36m>[39m
-                [36m<h1>[39m
-                  [0mCSV Degree Plan Import:[0m
-                [36m</h1>[39m
-                [36m<form>[39m
-                  [36m<input[39m
-                    [33maccept[39m=[32m".csv"[39m
-                    [33mtype[39m=[32m"file"[39m
-                  [36m/>[39m
-                  [36m<button[39m
-                    [33mtype[39m=[32m"button"[39m
-                  [36m>[39m
-                    [0mImport[0m
-                  [36m</button>[39m
-                [36m</form>[39m
-              [36m</div>[39m
-              [36m<a[39m
-                [33mdownload[39m=[32m"testexport"[39m
-                [33mhref[39m=[32m"data:text/csv;charset=utf-8,﻿\"First Name\",\"Last Name\"
-    \"Nicky\",\"Reigel\"
-    \"Aidan\",\"Bell\""[39m
-                [33mtarget[39m=[32m"_self"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mDownload CSV[0m
-                [36m</button>[39m
-              [36m</a>[39m
-            [36m</div>[39m
           [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
@@ -192,28 +158,28 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------------------|---------|----------|---------|---------|------------------------------------------------------------------
-File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                
----------------------------------|---------|----------|---------|---------|------------------------------------------------------------------
-All files                        |   38.72 |    23.25 |   11.45 |   39.46 |                                                                  
- src                             |   38.72 |    23.25 |   11.45 |   39.46 |                                                                  
-  AddDpSemestersCoursesModal.tsx |      25 |        0 |    6.66 |      25 | 39-41,53-72,76-92,98-101,109-130,136-150,154-161,175-184,197-273 
-  App.tsx                        |   51.51 |       25 |   18.18 |   56.66 | 25,33,46-75                                                      
-  CSV.tsx                        |   38.46 |    14.28 |      40 |   38.46 | 46-53,58                                                         
-  DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 24                                                               
-  DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 18,21,28                                                         
-  DpView.tsx                     |       0 |      100 |       0 |       0 | 22-67                                                            
-  EditingDp.tsx                  |       0 |        0 |       0 |       0 | 22-261                                                           
-  ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                             
-  Name.tsx                       |   66.66 |      100 |      50 |   66.66 | 8                                                                
-  courseList.tsx                 |     100 |    43.75 |     100 |     100 | 43-540                                                           
- src/interfaces                  |       0 |        0 |       0 |       0 |                                                                  
-  course.ts                      |       0 |        0 |       0 |       0 |                                                                  
-  degreeplan.ts                  |       0 |        0 |       0 |       0 |                                                                  
-  semester.ts                    |       0 |        0 |       0 |       0 |                                                                  
----------------------------------|---------|----------|---------|---------|------------------------------------------------------------------
+---------------------------------|---------|----------|---------|---------|----------------------------------------------------------------------
+File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                    
+---------------------------------|---------|----------|---------|---------|----------------------------------------------------------------------
+All files                        |      20 |     7.57 |   10.47 |   20.42 |                                                                      
+ src                             |      20 |     7.57 |   10.47 |   20.42 |                                                                      
+  AddDpSemestersCoursesModal.tsx |   22.72 |        0 |    6.66 |   22.72 | 42-43,56-100,104-112,125-128,137-158,164-178,182-189,203-212,225-270 
+  App.tsx                        |   56.75 |       25 |   30.76 |   61.76 | 37,45,57-86                                                          
+  CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                
+  CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-66                                                                
+  DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 24                                                                   
+  DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                             
+  DpView.tsx                     |       0 |      100 |       0 |       0 | 24-69                                                                
+  EditingDp.tsx                  |       0 |        0 |       0 |       0 | 24-256                                                               
+  ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                 
+  Name.tsx                       |   66.66 |      100 |      50 |   66.66 | 8                                                                    
+ src/interfaces                  |       0 |        0 |       0 |       0 |                                                                      
+  course.ts                      |       0 |        0 |       0 |       0 |                                                                      
+  degreeplan.ts                  |       0 |        0 |       0 |       0 |                                                                      
+  semester.ts                    |       0 |        0 |       0 |       0 |                                                                      
+---------------------------------|---------|----------|---------|---------|----------------------------------------------------------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.211 s
+Time:        2.999 s
 Ran all test suites.
