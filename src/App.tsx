@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable no-extra-parens */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { GenerateCSV, Import } from "./CSV";
 import { WelcomeMessage } from "./Name";
@@ -9,8 +9,20 @@ import dpsamplejson from "./sampleDpData.json"; //this is the real json data tha
 import { Button } from "react-bootstrap";
 import { DpList } from "./DpList";
 import { AddDpSemestersCoursesModal } from "./AddDpSemestersCoursesModal";
+import all_courses_json from "./data/catalog.json";
+import { Course } from "./interfaces/course";
+//import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function App(): JSX.Element {
+    //load in courses
+    const [allCourses, setAllCourses] = useState<Course[]>([]);
+    useEffect(() => {
+        const extractedCourses: Course[] = Object.values(
+            all_courses_json
+        ).flatMap((departmentCourses) => Object.values(departmentCourses));
+        setAllCourses(extractedCourses);
+    }, []);
+
     //load in json data
     const DEGREEPLANS: DegreePlan[] = dpsamplejson.map(
         (dp: DegreePlan): DegreePlan => ({ ...dp }) //dp = degreeplan
@@ -21,6 +33,7 @@ export function App(): JSX.Element {
     const SAVE_KEY = "MY-PAGE-DEGREEPLANS";
     const previousData = localStorage.getItem(SAVE_KEY);
     //load data into loaded_data (will either overwrite loaded_data with previous data if user is not new or keep initial loaded data if user it new)
+
     if (previousData !== null) {
         loaded_data = JSON.parse(previousData);
     }
@@ -99,6 +112,7 @@ export function App(): JSX.Element {
                     dp={degreePlans}
                     deleteDp={deleteDp}
                     editDp={editDegreePlan}
+                    allCourses={allCourses}
                 ></DpList>
                 <Button className="add_btn" onClick={handleShowModal}>
                     Add New Degree Plan
@@ -108,21 +122,8 @@ export function App(): JSX.Element {
                     show={showAddModal}
                     handleClose={handleCloseModal}
                     addDp={addDp}
+                    allCourses={allCourses}
                 ></AddDpSemestersCoursesModal>
-                <div>
-                    <Import
-                        importData={importData}
-                        setImportData={setImportData}
-                    />
-                    <GenerateCSV
-                        data={[
-                            ["First Name", "Last Name"],
-                            ["Nicky", "Reigel"],
-                            ["Aidan", "Bell"]
-                        ]}
-                        filename="testexport"
-                    />
-                </div>
             </div>
         </div>
     );

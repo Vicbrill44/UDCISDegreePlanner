@@ -6,18 +6,20 @@ import { DegreePlan } from "./interfaces/degreeplan";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Course } from "./interfaces/course";
 import { Semester } from "./interfaces/semester";
-import { courseList } from "./courseList";
+import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function EditingDp({
     show,
     handleClose,
     dp,
-    editDp
+    editDp,
+    allCourses
 }: {
     show: boolean;
     handleClose: () => void;
     dp: DegreePlan;
     editDp: (id: number, newdp: DegreePlan) => void;
+    allCourses: Course[];
 }): JSX.Element {
     const [semesters, setSemesters] = useState<Semester[]>(dp.semestersList);
     const [selectedSemester, setSelectedSemester] = useState<string>("Fall");
@@ -25,28 +27,29 @@ export function EditingDp({
     const [selectedSemesterId, setSelectedSemesterId] = useState<number | null>(
         null
     );
-    const [selectedCourseCode, setSelectedCourseCode] = useState<string>("");
 
     const [, setNewCourse] = useState<Course>({
-        title: "",
-        courseCode: "",
-        credits: 0,
-        degreeRequirements: [],
-        coursePrereq: [],
-        courseCoreq: [],
-        courseDescription: ""
+        code: "",
+        name: "",
+        descr: "",
+        credits: "",
+        preReq: "",
+        restrict: "",
+        breadth: "",
+        typ: ""
     });
     const handleSelectSemester = (semesterId: number) => {
         setSelectedSemesterId(semesterId);
         // Reset the course input fields when selecting a new semester
         setNewCourse({
-            courseCode: "",
-            title: "",
-            credits: 0,
-            degreeRequirements: [],
-            coursePrereq: [],
-            courseCoreq: [],
-            courseDescription: ""
+            code: "",
+            name: "",
+            descr: "",
+            credits: "",
+            preReq: "",
+            restrict: "",
+            breadth: "",
+            typ: ""
         });
     };
 
@@ -60,23 +63,33 @@ export function EditingDp({
         setSemesters([...semesters, newSemesterObj]);
     };
 
-    function updateSemesterCredits(semesterId: number, credits: number) {
+    function creditsToNum(credits: string): number {
+        const credsToNum = Number(credits);
+        if (Number.isNaN(credsToNum)) {
+            return 1;
+        }
+        return credsToNum;
+    }
+
+    function updateSemesterCredits(semesterId: number, credits: string) {
+        //todo: clean up credits so that it is a number not a string.
+        const cleanedCredits: number = creditsToNum(credits);
         const modifiedSemester = semesters.map(
             (semester: Semester): Semester =>
                 semester.id === semesterId
                     ? {
                           ...semester,
-                          totalCredits: semester.totalCredits + credits
+                          totalCredits: semester.totalCredits + cleanedCredits
                       }
                     : { ...semester }
         );
         setSemesters(modifiedSemester);
     }
 
-    const addCourse = (semesterId: number) => {
-        if (selectedSemesterId !== null && selectedCourseCode) {
-            const selectedCourse = courseList.find(
-                (course) => course.courseCode === selectedCourseCode
+    const addCourse = (semesterId: number, courseCode: string) => {
+        if (selectedSemesterId !== null && courseCode) {
+            const selectedCourse: Course | undefined = allCourses.find(
+                (course) => course.code === courseCode
             );
             if (selectedCourse) {
                 updateSemesterCredits(semesterId, selectedCourse.credits);
@@ -90,7 +103,6 @@ export function EditingDp({
                             : semester
                     )
                 );
-                setSelectedCourseCode(""); // Reset the selected course code
             }
         }
     };
@@ -102,12 +114,28 @@ export function EditingDp({
         setSemesters(updatedSemesters);
     };
 
+    //todo: create a function that is purely to remove course credits
+    function updateSemesterCreditsDelete(semesterId: number, credits: string) {
+        const cleanedCredits: number = creditsToNum(credits);
+        const modifiedSemester = semesters.map(
+            (semester: Semester): Semester =>
+                semester.id === semesterId
+                    ? {
+                          ...semester,
+                          totalCredits: semester.totalCredits - cleanedCredits
+                      }
+                    : { ...semester }
+        );
+        setSemesters(modifiedSemester);
+    }
+
     const deleteCourse = (
         semesterId: number,
         courseIndex: number,
-        credits: number
+        credits: string
     ) => {
-        updateSemesterCredits(semesterId, -credits);
+        //todo: add the function that is made strictly for handling removing a course creds
+        updateSemesterCreditsDelete(semesterId, credits);
         setSemesters((prevSemesters) =>
             prevSemesters.map((semester) =>
                 semester.id === semesterId
@@ -135,7 +163,6 @@ export function EditingDp({
     const handleCloseModal = () => {
         setSemesters(dp.semestersList);
         setTitle(dp.title);
-        setSelectedCourseCode("");
         handleClose();
     };
     const saveChanges = () => {
@@ -145,12 +172,11 @@ export function EditingDp({
             totalCredits: totDpSemesterCredits(),
             semestersList: semesters
         };
-        setSelectedCourseCode("");
         editDp(dp.id, newDp);
         handleClose();
     };
     return (
-        <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal show={show} onHide={handleClose} animation={false} size="lg">
             <Modal.Header closeButton>
                 <Modal.Title>Add New Degree Plan</Modal.Title>
             </Modal.Header>
@@ -202,10 +228,10 @@ export function EditingDp({
                                                 >
                                                     <span>
                                                         Course Code:{" "}
-                                                        {course.courseCode}
+                                                        {course.code}
                                                         <br />
                                                         Course Title:{" "}
-                                                        {course.title}
+                                                        {course.name}
                                                         <br />
                                                         Credits:{" "}
                                                         {course.credits}
@@ -234,35 +260,13 @@ export function EditingDp({
                                     </button>
                                     {selectedSemesterId === semester.id && (
                                         <div>
-                                            <select
-                                                value={selectedCourseCode}
-                                                onChange={(e) =>
-                                                    setSelectedCourseCode(
-                                                        e.target.value
-                                                    )
+                                            <CourseSearchDropDown
+                                                allCourses={allCourses}
+                                                updateCourseCodeAndAddCourse={
+                                                    addCourse
                                                 }
-                                            >
-                                                <option value="">
-                                                    Select a course
-                                                </option>
-                                                {courseList.map((course) => (
-                                                    <option
-                                                        key={course.courseCode}
-                                                        value={
-                                                            course.courseCode
-                                                        }
-                                                    >
-                                                        {course.title}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                            <button
-                                                onClick={() =>
-                                                    addCourse(semester.id)
-                                                }
-                                            >
-                                                Enter
-                                            </button>
+                                                semesterId={semester.id}
+                                            ></CourseSearchDropDown>
                                         </div>
                                     )}
                                 </li>
