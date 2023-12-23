@@ -33,7 +33,7 @@
             }
         ],
         "no-extra-parens": [
-            "warn",
+            "off",
             "all",
             {
                 "nestedBinaryExpressions": false,
