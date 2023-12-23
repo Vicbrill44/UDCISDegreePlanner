@@ -8,7 +8,13 @@ import { Course } from "./interfaces/course";
 import { Semester } from "./interfaces/semester";
 import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
-//todo: be able to bring in the list of courses. create a state that tracks all the courses and if one has already been used update the list to remove it.
+//todo: I want to completely change the way we present the ability to add a new dp modal in
+//      terms of adding semester and the ui presentation
+//      1)make a dropdown next the the adding semester which allows them to pick a year in which
+//        the semester will fall on (2019, 2020, etc). (DONE)
+//      2)The modal UI should create a table that lays out things like current classes added, buttons, semester, etc
+//      3)Fix the Course Search so that the search bar and "enter course" are next to each other. (DONE)
+
 export function AddDpSemestersCoursesModal({
     show,
     handleClose,
@@ -20,12 +26,16 @@ export function AddDpSemestersCoursesModal({
     addDp: (newdp: DegreePlan) => void;
     allCourses: Course[];
 }): JSX.Element {
+    const currentYear = new Date().getFullYear();
+    const years = Array.from({ length: 20 }, (v, i) => currentYear + i); // Next 20 years
+
     const [semesters, setSemesters] = useState<Semester[]>([]);
     const [selectedSemester, setSelectedSemester] = useState<string>("Fall");
     const [title, setTitle] = useState<string>("Example Title");
     const [selectedSemesterId, setSelectedSemesterId] = useState<number | null>(
         null
     );
+    const [semesterYear, setSemesterYear] = useState<number>(currentYear);
 
     const [, setNewCourse] = useState<Course>({
         code: "",
@@ -55,9 +65,10 @@ export function AddDpSemestersCoursesModal({
     const addSemester = () => {
         const newSemesterObj: Semester = {
             id: semesters.length + 1,
-            title: selectedSemester,
+            title: selectedSemester + " " + semesterYear.toString(),
             courses: [],
-            totalCredits: 0
+            totalCredits: 0,
+            year: semesterYear
         };
         setSemesters([...semesters, newSemesterObj]);
     };
@@ -133,7 +144,6 @@ export function AddDpSemestersCoursesModal({
         courseIndex: number,
         credits: string
     ) => {
-        //todo: add the function that is made strictly for handling removing a course creds
         updateSemesterCreditsDelete(semesterId, credits);
         setSemesters((prevSemesters) =>
             prevSemesters.map((semester) =>
@@ -164,6 +174,7 @@ export function AddDpSemestersCoursesModal({
         setTitle("Example Title");
         setSelectedSemester("Fall");
         setSelectedSemesterId(null);
+        setSemesterYear(currentYear);
         setSemesters([]);
         setNewCourse({
             code: "",
@@ -185,12 +196,13 @@ export function AddDpSemestersCoursesModal({
             totalCredits: totDpSemesterCredits(),
             semestersList: semesters
         };
+        setSemesterYear(currentYear);
         addDp(newDp);
         handleCloseModal();
     };
 
     return (
-        <Modal show={show} onHide={handleClose} animation={false} size="lg">
+        <Modal show={show} onHide={handleClose} animation={false} size="xl">
             <Modal.Header closeButton>
                 <Modal.Title>Add New Degree Plan</Modal.Title>
             </Modal.Header>
@@ -215,6 +227,18 @@ export function AddDpSemestersCoursesModal({
                                 {semesterOptions.map((option, index) => (
                                     <option key={index} value={option}>
                                         {option}
+                                    </option>
+                                ))}
+                            </select>
+                            <select
+                                value={semesterYear}
+                                onChange={(e) =>
+                                    setSemesterYear(Number(e.target.value))
+                                }
+                            >
+                                {years.map((year) => (
+                                    <option key={year} value={year}>
+                                        {year}
                                     </option>
                                 ))}
                             </select>

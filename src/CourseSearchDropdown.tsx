@@ -40,14 +40,33 @@ export const CourseSearchDropDown = ({
     };
 
     return (
-        <div className="searchBar">
-            <div className="searchBarTextfield">
-                <input
-                    type="text"
-                    onChange={handleSearch}
-                    placeholder="Search"
-                    value={searchTerm}
-                />
+        <div className="searchBarContainer">
+            <div className="searchBar">
+                <div className="searchBarTextfield">
+                    <input
+                        type="text"
+                        onChange={handleSearch}
+                        placeholder="Search"
+                        value={searchTerm}
+                    />
+                </div>
+                <div className="coursesDropdown">
+                    {filteredData.length !== 0 && (
+                        <div className="courseQuery">
+                            {filteredData.slice(0, 10).map((course: Course) => (
+                                <a
+                                    className="courseItem"
+                                    onClick={() =>
+                                        handleSelectingCourse(course.code)
+                                    }
+                                    key={course.code}
+                                >
+                                    {course.code}
+                                </a>
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
             <Button
                 size="sm"
@@ -56,23 +75,6 @@ export const CourseSearchDropDown = ({
             >
                 Enter Course
             </Button>
-            <div className="coursesDropdown">
-                {filteredData.length !== 0 && (
-                    <div className="courseQuery">
-                        {filteredData.slice(0, 10).map((course: Course) => (
-                            <a
-                                className="courseItem"
-                                onClick={() =>
-                                    handleSelectingCourse(course.code)
-                                }
-                                key={course.code}
-                            >
-                                {course.code}
-                            </a>
-                        ))}
-                    </div>
-                )}
-            </div>
         </div>
     );
 };

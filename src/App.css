@@ -13,13 +13,22 @@
     font-size: calc(10px + 2vmin);
     color: white;
 }
+
+.searchBarContainer {
+    display: flex;
+    align-items: flex-start;
+}
+
 .searchBar {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column; /* Stack children vertically */
-    padding: 10px; /* Adjust as necessary */
-    width: 100%; /* Ensure full width */
+    margin-top: 10px; /* Adjust as necessary */
+    width: 40%; /* Ensure full width */
+}
+.EnterCourseButton {
+    margin-top: 10px; /* Adjust as necessary */
 }
 
 .searchBarTextfield {

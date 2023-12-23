@@ -21,12 +21,17 @@ export function EditingDp({
     editDp: (id: number, newdp: DegreePlan) => void;
     allCourses: Course[];
 }): JSX.Element {
+    //create all semester years
+    const currentYear = new Date().getFullYear();
+    const years = Array.from({ length: 20 }, (v, i) => currentYear + i); // Next 20 years
+
     const [semesters, setSemesters] = useState<Semester[]>(dp.semestersList);
     const [selectedSemester, setSelectedSemester] = useState<string>("Fall");
     const [title, setTitle] = useState<string>(dp.title);
     const [selectedSemesterId, setSelectedSemesterId] = useState<number | null>(
         null
     );
+    const [semesterYear, setSemesterYear] = useState<number>(currentYear);
 
     const [, setNewCourse] = useState<Course>({
         code: "",
@@ -56,9 +61,10 @@ export function EditingDp({
     const addSemester = () => {
         const newSemesterObj: Semester = {
             id: semesters.length + 1,
-            title: selectedSemester,
+            title: selectedSemester + " " + semesterYear.toString(),
             courses: [],
-            totalCredits: 0
+            totalCredits: 0,
+            year: semesterYear
         };
         setSemesters([...semesters, newSemesterObj]);
     };
@@ -72,7 +78,6 @@ export function EditingDp({
     }
 
     function updateSemesterCredits(semesterId: number, credits: string) {
-        //todo: clean up credits so that it is a number not a string.
         const cleanedCredits: number = creditsToNum(credits);
         const modifiedSemester = semesters.map(
             (semester: Semester): Semester =>
@@ -113,8 +118,6 @@ export function EditingDp({
         );
         setSemesters(updatedSemesters);
     };
-
-    //todo: create a function that is purely to remove course credits
     function updateSemesterCreditsDelete(semesterId: number, credits: string) {
         const cleanedCredits: number = creditsToNum(credits);
         const modifiedSemester = semesters.map(
@@ -164,6 +167,7 @@ export function EditingDp({
         setSemesters(dp.semestersList);
         setTitle(dp.title);
         handleClose();
+        setSemesterYear(currentYear);
     };
     const saveChanges = () => {
         const newDp: DegreePlan = {
@@ -172,11 +176,12 @@ export function EditingDp({
             totalCredits: totDpSemesterCredits(),
             semestersList: semesters
         };
+        setSemesterYear(currentYear);
         editDp(dp.id, newDp);
         handleClose();
     };
     return (
-        <Modal show={show} onHide={handleClose} animation={false} size="lg">
+        <Modal show={show} onHide={handleClose} animation={false} size="xl">
             <Modal.Header closeButton>
                 <Modal.Title>Add New Degree Plan</Modal.Title>
             </Modal.Header>
@@ -201,6 +206,18 @@ export function EditingDp({
                                 {semesterOptions.map((option, index) => (
                                     <option key={index} value={option}>
                                         {option}
+                                    </option>
+                                ))}
+                            </select>
+                            <select
+                                value={semesterYear}
+                                onChange={(e) =>
+                                    setSemesterYear(Number(e.target.value))
+                                }
+                            >
+                                {years.map((year) => (
+                                    <option key={year} value={year}>
+                                        {year}
                                     </option>
                                 ))}
                             </select>
