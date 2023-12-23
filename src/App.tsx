@@ -2,7 +2,6 @@
 /* eslint-disable no-extra-parens */
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { GenerateCSV, Import } from "./CSV";
 import { WelcomeMessage } from "./Name";
 import { DegreePlan } from "./interfaces/degreeplan";
 import dpsamplejson from "./sampleDpData.json"; //this is the real json data that the user will start with if they are new
@@ -46,7 +45,6 @@ export function App(): JSX.Element {
         default_id = JSON.parse(previoudId);
     }
 
-    const [importData, setImportData] = useState<string>("");
     //degreePlans will store and maintain the users degree plans, whenever they save their work it will be stored here
     const [degreePlans, setdegreePlans] = useState<DegreePlan[]>(loaded_data);
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
