@@ -72,6 +72,7 @@ export const CourseSearchDropDown = ({
                 size="sm"
                 className="EnterCourseButton"
                 onClick={handleUpdateCourseCodeAndAddCourse}
+                variant="secondary"
             >
                 Enter Course
             </Button>

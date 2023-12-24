@@ -14,9 +14,18 @@
     color: white;
 }
 
+.newDpTitle {
+    width: 50%;
+    margin-bottom: 20px;
+}
+
 .searchBarContainer {
     display: flex;
     align-items: flex-start;
+}
+
+.addSemesterContainer {
+    margin-bottom: 20px;
 }
 
 .searchBar {
@@ -27,6 +36,7 @@
     margin-top: 10px; /* Adjust as necessary */
     width: 40%; /* Ensure full width */
 }
+
 .EnterCourseButton {
     margin-top: 10px; /* Adjust as necessary */
 }
