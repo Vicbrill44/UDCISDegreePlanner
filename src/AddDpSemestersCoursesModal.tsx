@@ -3,12 +3,20 @@
 import React, { useState } from "react";
 import "./App.css";
 import { DegreePlan } from "./interfaces/degreeplan";
-import { Button, Form, Modal } from "react-bootstrap";
+import {
+    Button,
+    Form,
+    Modal,
+    Table,
+    Container,
+    Row,
+    Col,
+    Card
+} from "react-bootstrap";
 import { Course } from "./interfaces/course";
 import { Semester } from "./interfaces/semester";
 import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
-//todo: be able to bring in the list of courses. create a state that tracks all the courses and if one has already been used update the list to remove it.
 export function AddDpSemestersCoursesModal({
     show,
     handleClose,
@@ -20,12 +28,16 @@ export function AddDpSemestersCoursesModal({
     addDp: (newdp: DegreePlan) => void;
     allCourses: Course[];
 }): JSX.Element {
+    const currentYear = new Date().getFullYear();
+    const years = Array.from({ length: 20 }, (v, i) => currentYear + i); // Next 20 years
+
     const [semesters, setSemesters] = useState<Semester[]>([]);
     const [selectedSemester, setSelectedSemester] = useState<string>("Fall");
     const [title, setTitle] = useState<string>("Example Title");
     const [selectedSemesterId, setSelectedSemesterId] = useState<number | null>(
         null
     );
+    const [semesterYear, setSemesterYear] = useState<number>(currentYear);
 
     const [, setNewCourse] = useState<Course>({
         code: "",
@@ -55,9 +67,10 @@ export function AddDpSemestersCoursesModal({
     const addSemester = () => {
         const newSemesterObj: Semester = {
             id: semesters.length + 1,
-            title: selectedSemester,
+            title: selectedSemester + " " + semesterYear.toString(),
             courses: [],
-            totalCredits: 0
+            totalCredits: 0,
+            year: semesterYear
         };
         setSemesters([...semesters, newSemesterObj]);
     };
@@ -133,7 +146,6 @@ export function AddDpSemestersCoursesModal({
         courseIndex: number,
         credits: string
     ) => {
-        //todo: add the function that is made strictly for handling removing a course creds
         updateSemesterCreditsDelete(semesterId, credits);
         setSemesters((prevSemesters) =>
             prevSemesters.map((semester) =>
@@ -164,6 +176,7 @@ export function AddDpSemestersCoursesModal({
         setTitle("Example Title");
         setSelectedSemester("Fall");
         setSelectedSemesterId(null);
+        setSemesterYear(currentYear);
         setSemesters([]);
         setNewCourse({
             code: "",
@@ -185,107 +198,187 @@ export function AddDpSemestersCoursesModal({
             totalCredits: totDpSemesterCredits(),
             semestersList: semesters
         };
+        setSemesterYear(currentYear);
         addDp(newDp);
         handleCloseModal();
     };
 
     return (
-        <Modal show={show} onHide={handleClose} animation={false} size="lg">
+        <Modal show={show} onHide={handleClose} animation={false} size="xl">
             <Modal.Header closeButton>
                 <Modal.Title>Add New Degree Plan</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group>
-                    <Form.Label>Title: </Form.Label>
+                    <Form.Label>
+                        <h5>Title</h5>
+                    </Form.Label>
                     <Form.Control
+                        className="newDpTitle"
                         defaultValue="Example Title"
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                            setTitle(e.target.value)
-                        }
-                    ></Form.Control>
-                    <div>
+                        onChange={(e) => setTitle(e.target.value)}
+                    />
+                    <div className="addSemesterCourses">
                         <h5>Add Semesters and Courses</h5>
-                        <div>
-                            <select
-                                defaultValue={"Fall"}
-                                onChange={(e) =>
-                                    setSelectedSemester(e.target.value)
-                                }
-                            >
-                                {semesterOptions.map((option, index) => (
-                                    <option key={index} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                            <button onClick={addSemester}>Add Semester</button>
-                        </div>
-                        <ul>
-                            {semesters.map((semester) => (
-                                <li key={semester.id}>
-                                    <div>
-                                        Semester: {semester.title}
-                                        <button
-                                            onClick={() =>
-                                                deleteSemester(semester.id)
-                                            }
-                                        >
-                                            Delete Semester
-                                        </button>
-                                    </div>
-                                    <div className="courses">
-                                        {semester.courses.map(
-                                            (course, courseIndex) => (
-                                                <div
-                                                    key={courseIndex}
-                                                    className="course"
-                                                >
-                                                    <span>
-                                                        Course Code:{" "}
-                                                        {course.code}
-                                                        <br />
-                                                        Course Title:{" "}
-                                                        {course.name}
-                                                        <br />
-                                                        Credits:{" "}
-                                                        {course.credits}
-                                                    </span>
-                                                    <button
-                                                        onClick={() =>
-                                                            deleteCourse(
-                                                                semester.id,
-                                                                courseIndex,
-                                                                course.credits
-                                                            )
-                                                        }
-                                                    >
-                                                        Delete Course
-                                                    </button>
-                                                </div>
-                                            )
-                                        )}
-                                    </div>
-                                    <button
-                                        onClick={() =>
-                                            handleSelectSemester(semester.id)
+                        <div className="addSemesterContainer">
+                            <Row>
+                                <Col>
+                                    <Form.Select
+                                        aria-label="Default select example"
+                                        defaultValue={"Fall"}
+                                        onChange={(e) =>
+                                            setSelectedSemester(e.target.value)
                                         }
                                     >
-                                        Add Course
-                                    </button>
-                                    {selectedSemesterId === semester.id && (
-                                        <div>
-                                            <CourseSearchDropDown
-                                                allCourses={allCourses}
-                                                updateCourseCodeAndAddCourse={
-                                                    addCourse
-                                                }
-                                                semesterId={semester.id}
-                                            ></CourseSearchDropDown>
-                                        </div>
-                                    )}
-                                </li>
+                                        {semesterOptions.map(
+                                            (option, index) => (
+                                                <option
+                                                    key={index}
+                                                    value={option}
+                                                >
+                                                    {option}
+                                                </option>
+                                            )
+                                        )}
+                                    </Form.Select>
+                                </Col>
+                                <Col>
+                                    <Form.Select
+                                        value={semesterYear}
+                                        onChange={(e) =>
+                                            setSemesterYear(
+                                                Number(e.target.value)
+                                            )
+                                        }
+                                    >
+                                        {years.map((year) => (
+                                            <option key={year} value={year}>
+                                                {year}
+                                            </option>
+                                        ))}
+                                    </Form.Select>
+                                </Col>
+                                <Col>
+                                    <Button onClick={addSemester}>
+                                        Add Semester
+                                    </Button>
+                                </Col>
+                            </Row>
+                        </div>
+                        <Container className="semesterCoursesContainer">
+                            {semesters.map((semester) => (
+                                <Row key={semester.id}>
+                                    <Col>
+                                        <Card>
+                                            <Card.Header>
+                                                <p>{semester.title}</p>
+                                                <p>
+                                                    Total Credits:{" "}
+                                                    {semester.totalCredits}
+                                                </p>
+                                                <Button
+                                                    onClick={() =>
+                                                        deleteSemester(
+                                                            semester.id
+                                                        )
+                                                    }
+                                                    size="sm"
+                                                    variant="danger"
+                                                >
+                                                    Remove
+                                                </Button>
+                                            </Card.Header>
+                                            <Card.Body>
+                                                <Table striped bordered>
+                                                    <tbody>
+                                                        {semester.courses.map(
+                                                            (
+                                                                course,
+                                                                courseIndex
+                                                            ) => (
+                                                                <tr
+                                                                    key={
+                                                                        courseIndex
+                                                                    }
+                                                                >
+                                                                    <td>
+                                                                        <p>
+                                                                            {course.code +
+                                                                                "-" +
+                                                                                course.name}
+                                                                        </p>
+                                                                        <p>
+                                                                            Course
+                                                                            Credits:{" "}
+                                                                            {
+                                                                                course.credits
+                                                                            }
+                                                                        </p>
+
+                                                                        <p
+                                                                            style={{
+                                                                                textAlign:
+                                                                                    "center"
+                                                                            }}
+                                                                        >
+                                                                            Course
+                                                                            Description:{" "}
+                                                                            {
+                                                                                course.descr
+                                                                            }
+                                                                        </p>
+                                                                        <Button
+                                                                            onClick={() =>
+                                                                                deleteCourse(
+                                                                                    semester.id,
+                                                                                    courseIndex,
+                                                                                    course.credits
+                                                                                )
+                                                                            }
+                                                                            size="sm"
+                                                                            variant="danger"
+                                                                        >
+                                                                            Remove
+                                                                        </Button>
+                                                                    </td>
+                                                                </tr>
+                                                            )
+                                                        )}
+                                                    </tbody>
+                                                </Table>
+                                                <div className="addCourseContainer">
+                                                    <Button
+                                                        onClick={() =>
+                                                            handleSelectSemester(
+                                                                semester.id
+                                                            )
+                                                        }
+                                                        size="sm"
+                                                        variant="primary"
+                                                    >
+                                                        Add Course
+                                                    </Button>
+                                                    {selectedSemesterId ===
+                                                        semester.id && (
+                                                        <CourseSearchDropDown
+                                                            allCourses={
+                                                                allCourses
+                                                            }
+                                                            updateCourseCodeAndAddCourse={
+                                                                addCourse
+                                                            }
+                                                            semesterId={
+                                                                semester.id
+                                                            }
+                                                        />
+                                                    )}
+                                                </div>
+                                            </Card.Body>
+                                        </Card>
+                                    </Col>
+                                </Row>
                             ))}
-                        </ul>
+                        </Container>
                     </div>
                 </Form.Group>
             </Modal.Body>

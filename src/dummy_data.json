@@ -7,6 +7,7 @@
             {
                 "title": "Fall 2025",
                 "totalCredits": 6,
+                "year": 2025,
                 "courseList": [
                     {
                         "title": "CISC220",
@@ -45,6 +46,7 @@
             {
                 "title": "Fall 2024",
                 "totalCredits": 6,
+                "year": 2025,
                 "courseList": [
                     {
                         "title": "CISC220",
@@ -86,6 +88,7 @@
             {
                 "title": "Fall 2024",
                 "totalCredits": 6,
+                "year": 2025,
                 "courseList": [
                     {
                         "title": "CISC220",
@@ -127,6 +130,7 @@
             {
                 "title": "Spring 2023",
                 "totalCredits": 6,
+                "year": 2025,
                 "courseList": [
                     {
                         "title": "CISC205",
@@ -163,6 +167,7 @@
             {
                 "title": "Fall 2023",
                 "totalCredits": 3,
+                "year": 2025,
                 "courseList": [
                     {
                         "title": "CISC220",
@@ -183,6 +188,7 @@
             {
                 "title": "Spring 2023",
                 "totalCredits": 3,
+                "year": 2025,
                 "courseList": [
                     {
                         "title": "CISC205",
