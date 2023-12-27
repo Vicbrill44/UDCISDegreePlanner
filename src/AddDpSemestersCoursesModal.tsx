@@ -206,7 +206,9 @@ export function AddDpSemestersCoursesModal({
     return (
         <Modal show={show} onHide={handleClose} animation={false} size="xl">
             <Modal.Header closeButton>
-                <Modal.Title>Add New Degree Plan</Modal.Title>
+                <Modal.Title>
+                    <h3>Add New Degree Plan</h3>
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group>
@@ -215,11 +217,13 @@ export function AddDpSemestersCoursesModal({
                     </Form.Label>
                     <Form.Control
                         className="newDpTitle"
-                        defaultValue="Example Title"
+                        placeholder="Example Title"
                         onChange={(e) => setTitle(e.target.value)}
                     />
                     <div className="addSemesterCourses">
-                        <h5>Add Semesters and Courses</h5>
+                        <h5 style={{ paddingBottom: "10px" }}>
+                            Add Semesters and Courses
+                        </h5>
                         <div className="addSemesterContainer">
                             <Row>
                                 <Col>
@@ -271,11 +275,21 @@ export function AddDpSemestersCoursesModal({
                                     <Col>
                                         <Card>
                                             <Card.Header>
-                                                <p>{semester.title}</p>
-                                                <p>
+                                                <h5
+                                                    style={{
+                                                        paddingBottom: "10px"
+                                                    }}
+                                                >
+                                                    {semester.title}
+                                                </h5>
+                                                <h5
+                                                    style={{
+                                                        paddingBottom: "10px"
+                                                    }}
+                                                >
                                                     Total Credits:{" "}
                                                     {semester.totalCredits}
-                                                </p>
+                                                </h5>
                                                 <Button
                                                     onClick={() =>
                                                         deleteSemester(
@@ -302,12 +316,26 @@ export function AddDpSemestersCoursesModal({
                                                                     }
                                                                 >
                                                                     <td>
-                                                                        <p>
+                                                                        <h5
+                                                                            style={{
+                                                                                textAlign:
+                                                                                    "center",
+                                                                                paddingBottom:
+                                                                                    "15px"
+                                                                            }}
+                                                                        >
                                                                             {course.code +
                                                                                 "-" +
                                                                                 course.name}
-                                                                        </p>
-                                                                        <p>
+                                                                        </h5>
+                                                                        <p
+                                                                            style={{
+                                                                                textAlign:
+                                                                                    "center",
+                                                                                paddingBottom:
+                                                                                    "15px"
+                                                                            }}
+                                                                        >
                                                                             Course
                                                                             Credits:{" "}
                                                                             {
@@ -318,7 +346,13 @@ export function AddDpSemestersCoursesModal({
                                                                         <p
                                                                             style={{
                                                                                 textAlign:
-                                                                                    "center"
+                                                                                    "center",
+                                                                                wordSpacing:
+                                                                                    "5px",
+                                                                                lineHeight:
+                                                                                    "20px",
+                                                                                paddingBottom:
+                                                                                    "15px"
                                                                             }}
                                                                         >
                                                                             Course
@@ -327,19 +361,21 @@ export function AddDpSemestersCoursesModal({
                                                                                 course.descr
                                                                             }
                                                                         </p>
-                                                                        <Button
-                                                                            onClick={() =>
-                                                                                deleteCourse(
-                                                                                    semester.id,
-                                                                                    courseIndex,
-                                                                                    course.credits
-                                                                                )
-                                                                            }
-                                                                            size="sm"
-                                                                            variant="danger"
-                                                                        >
-                                                                            Remove
-                                                                        </Button>
+                                                                        <div className="d-flex justify-content-center align-items-center">
+                                                                            <Button
+                                                                                onClick={() =>
+                                                                                    deleteCourse(
+                                                                                        semester.id,
+                                                                                        courseIndex,
+                                                                                        course.credits
+                                                                                    )
+                                                                                }
+                                                                                size="sm"
+                                                                                variant="danger"
+                                                                            >
+                                                                                Remove
+                                                                            </Button>
+                                                                        </div>
                                                                     </td>
                                                                 </tr>
                                                             )

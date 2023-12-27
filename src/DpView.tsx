@@ -34,29 +34,49 @@ export function DpView({
             <Container>
                 <Row>
                     <Col>
-                        <h1>{dp.title}</h1>
+                        <h2 style={{ fontWeight: "bold", textAlign: "center" }}>
+                            {dp.title}
+                        </h2>
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <h4>Total Credits: {dp.totalCredits}</h4>
-                    </Col>
-                    <Col>
-                        <h4>Degree Plan ID: {dp.id}</h4>
+                    <Col
+                        style={{
+                            paddingTop: "15px",
+                            fontWeight: "bold",
+                            textAlign: "center",
+                            paddingBottom: "15px"
+                        }}
+                    >
+                        <h3>Total Credits: {dp.totalCredits}</h3>
                     </Col>
                 </Row>
                 <Row>
-                    <Table>
+                    <Table borderless>
                         <thead>
                             <tr>
                                 {dp.semestersList.map((semester: Semester) => (
                                     <th key={semester.title}>
                                         <Card bg="warning">
-                                            <p>{semester.title}</p>
-                                            <p>
+                                            <h5
+                                                style={{
+                                                    textAlign: "center",
+                                                    paddingBottom: "20px",
+                                                    fontWeight: "bold"
+                                                }}
+                                            >
+                                                {semester.title}
+                                            </h5>
+                                            <h5
+                                                style={{
+                                                    textAlign: "center",
+                                                    paddingBottom: "20px",
+                                                    fontWeight: "bold"
+                                                }}
+                                            >
                                                 Total Credits:{" "}
                                                 {semester.totalCredits}
-                                            </p>
+                                            </h5>
                                         </Card>
                                     </th>
                                 ))}
@@ -68,30 +88,63 @@ export function DpView({
                                     {semester.courses.map((course: Course) => (
                                         <div key={course.code}>
                                             <Card bg="light">
-                                                <p>{course.name}</p>
+                                                <h5
+                                                    style={{
+                                                        textAlign: "center",
+                                                        paddingBottom: "20px",
+                                                        wordSpacing: "5px",
+                                                        lineHeight: "25px"
+                                                    }}
+                                                >
+                                                    {course.name}
+                                                </h5>
                                             </Card>
                                             <Table>
                                                 <Card bg="info" text="dark">
                                                     <tbody>
-                                                        <td>
-                                                            <p>
+                                                        <td className="dp_viewer_courses">
+                                                            <h4
+                                                                style={{
+                                                                    paddingTop:
+                                                                        "10px",
+                                                                    textAlign:
+                                                                        "center",
+                                                                    wordSpacing:
+                                                                        "5px"
+                                                                }}
+                                                            >
                                                                 Course Credits:{" "}
                                                                 {course.credits}
-                                                            </p>
-                                                            <p>
+                                                            </h4>
+                                                            <h4
+                                                                style={{
+                                                                    paddingTop:
+                                                                        "10px",
+                                                                    textAlign:
+                                                                        "center",
+                                                                    wordSpacing:
+                                                                        "5px"
+                                                                }}
+                                                            >
                                                                 Course Code:{" "}
                                                                 {course.code}
-                                                            </p>
-                                                            <p
+                                                            </h4>
+                                                            <h4
                                                                 style={{
+                                                                    paddingTop:
+                                                                        "10px",
                                                                     textAlign:
-                                                                        "center"
+                                                                        "center",
+                                                                    wordSpacing:
+                                                                        "5px",
+                                                                    lineHeight:
+                                                                        "25px"
                                                                 }}
                                                             >
                                                                 Course
                                                                 Description:{" "}
                                                                 {course.descr}
-                                                            </p>
+                                                            </h4>
                                                         </td>
                                                     </tbody>
                                                 </Card>
@@ -104,34 +157,27 @@ export function DpView({
                     </Table>
                 </Row>
             </Container>
-            <Button
-                className="esc_button text-align-center"
-                variant="danger"
-                onClick={resetView}
+            <div
+                className="d-flex justify-content-center align-items-center"
+                style={{ gap: "10px" }}
             >
-                Exit
-            </Button>
-            <Button
-                className="esc_button text-align-center"
-                variant="danger"
-                onClick={deleteDegreePlan}
-            >
-                Delete
-            </Button>
-            <Button
-                className="esc_button text-align-center"
-                variant="warning"
-                onClick={handleShowModal}
-            >
-                Edit{" "}
-            </Button>
-            <EditingDp
-                show={showEditModal}
-                handleClose={handleCloseModal}
-                dp={dp}
-                editDp={editDp}
-                allCourses={allCourses}
-            ></EditingDp>
+                <Button variant="danger" onClick={resetView}>
+                    Exit
+                </Button>
+                <Button variant="danger" onClick={deleteDegreePlan}>
+                    Delete
+                </Button>
+                <Button variant="warning" onClick={handleShowModal}>
+                    Edit
+                </Button>
+                <EditingDp
+                    show={showEditModal}
+                    handleClose={handleCloseModal}
+                    dp={dp}
+                    editDp={editDp}
+                    allCourses={allCourses}
+                ></EditingDp>
+            </div>
         </div>
     );
 }
