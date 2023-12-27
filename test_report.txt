@@ -2,45 +2,8 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test --coverage
 
-  console.error
-    Warning: validateDOMNesting(...): <div> cannot appear as a descendant of <p>.
-        at div
-        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-bootstrap/cjs/FormGroup.js:19:3
-        at div
-        at WelcomeMessage (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/Name.tsx:5:37)
-        at p
-        at header
-        at div
-        at div
-        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:17:49)
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
-      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10083:7)
-      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
-      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
-      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
-
-  console.error
-    Warning: validateDOMNesting(...): <ul> cannot appear as a descendant of <p>.
-        at ul
-        at p
-        at header
-        at div
-        at div
-        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:17:49)
-
-      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
-      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
-      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10083:7)
-      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
-      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
-      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
-
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (110 ms)
+  ✕ renders the course name somewhere (94 ms)
 
   ● renders the course name somewhere
 
@@ -49,92 +12,200 @@ FAIL src/App.test.tsx
     Ignored nodes: comments, <script />, <style />
     [36m<body>[39m
       [36m<div>[39m
-        [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"body"[39m
+        [36m>[39m
           [36m<div[39m
             [33mclass[39m=[32m"App"[39m
           [36m>[39m
-            [36m<header[39m
-              [33mclass[39m=[32m"App-header"[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"header_container"[39m
             [36m>[39m
-              [0mUniversity of Delaware Computer Science Degree Plan[0m
-              [36m<p>[39m
-                [36m<div>[39m
-                  [36m<div>[39m
-                    [36m<label[39m
-                      [33mclass[39m=[32m"form-label"[39m
-                      [33mfor[39m=[32m"formStudent"[39m
-                    [36m>[39m
-                      [0mName:[0m
-                    [36m</label>[39m
-                    [36m<input[39m
-                      [33mclass[39m=[32m"form-control"[39m
-                      [33mid[39m=[32m"formStudent"[39m
-                      [33mvalue[39m=[32m"New Student"[39m
-                    [36m/>[39m
-                  [36m</div>[39m
-                  [36m<div>[39m
-                    [0mWelcome [0m
-                    [0mNew Student[0m
-                    [0m, here you will create you potential class schedule.[0m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</p>[39m
-              [36m<p>[39m
-                [36m<ul[39m
-                  [33mclass[39m=[32m"horizontal-list"[39m
-                [36m>[39m
-                  [36m<li>[39m
-                    [0m Aidan Bell [0m
-                  [36m</li>[39m
-                  [36m<li>[39m
-                    [0mLawrence Collins [0m
-                  [36m</li>[39m
-                  [36m<li>[39m
-                    [0mNicky Reigel[0m
-                  [36m</li>[39m
-                  [36m<li>[39m
-                    [0mMelvin Rau[0m
-                  [36m</li>[39m
-                  [36m<li>[39m
-                    [0mVictor Vasquez[0m
-                  [36m</li>[39m
-                [36m</ul>[39m
-              [36m</p>[39m
-            [36m</header>[39m
-            [36m<div>[39m
-              [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"header_box"[39m
+              [36m>[39m
                 [36m<div[39m
-                  [33mclass[39m=[32m"d-flex justify-content-center align-items-center"[39m
+                  [33mclass[39m=[32m"header_container1"[39m
                 [36m>[39m
                   [36m<div[39m
-                    [33mclass[39m=[32m"card bg-primary text-light"[39m
-                    [33mstyle[39m=[32m"width: 25rem;"[39m
+                    [33mclass[39m=[32m"ud_logo"[39m
+                  [36m>[39m
+                    [36m<a>[39m
+                      [36m<img[39m
+                        [33malt[39m=[32m"Valopedia's logo design image for a Valorant website"[39m
+                        [33msrc[39m=[32m"ud_logo_sm.png"[39m
+                      [36m/>[39m
+                    [36m</a>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"header_container2"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"dplanner_tag_cont"[39m
+                  [36m>[39m
+                    [36m<h2>[39m
+                      [0mCS Degree Planner | University of Delaware[0m
+                    [36m</h2>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"text_buttons_cont"[39m
                   [36m>[39m
                     [36m<div[39m
-                      [33mclass[39m=[32m"card-body"[39m
+                      [33mclass[39m=[32m"textboxes"[39m
                     [36m>[39m
                       [36m<div[39m
-                        [33mclass[39m=[32m"card-title h5"[39m
+                        [33mclass[39m=[32m"font_buttons_textboxes"[39m
                       [36m>[39m
-                        [0mDegree Plan 1[0m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"courses_text"[39m
+                        [36m>[39m
+                          [36m<a[39m
+                            [33mhref[39m=[32m"news.html"[39m
+                          [36m>[39m
+                            [0mCourses[0m
+                          [36m</a>[39m
+                        [36m</div>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"resources_text"[39m
+                        [36m>[39m
+                          [36m<a[39m
+                            [33mhref[39m=[32m"events.html"[39m
+                          [36m>[39m
+                            [0mResources[0m
+                          [36m</a>[39m
+                        [36m</div>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"about_text"[39m
+                        [36m>[39m
+                          [36m<a[39m
+                            [33mhref[39m=[32m"matches.html"[39m
+                          [36m>[39m
+                            [0mAbout[0m
+                          [36m</a>[39m
+                        [36m</div>[39m
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
                 [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"add_btn btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"howtotext_container"[39m
             [36m>[39m
-              [0mAdd New Degree Plan[0m
-            [36m</button>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"howtotext_info"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"card text-light"[39m
+                  [33mstyle[39m=[32m"background-color: rgb(0, 83, 159);"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"card-body"[39m
+                  [36m>[39m
+                    [36m<h5>[39m
+                      [0mThis tool is used for planning your University of Delaware Computer Science Degree[0m
+                    [36m</h5>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"howtotext_text"[39m
+              [36m>[39m
+                [36m<h5[39m
+                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
+                [36m>[39m
+                  [0mYou are able to create multiple degree plans with the ability to add semesters and courses inside of a degree plan.[0m
+                [36m</h5>[39m
+                [36m<h5[39m
+                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
+                [36m>[39m
+                  [0mGetting Started:[0m
+                [36m</h5>[39m
+                [36m<h5[39m
+                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
+                [36m>[39m
+                  [0mTo get started, press the "Add New Degree Plan" button to open up an overlay where you can populate a new degree plan with semesters and courses.[0m
+                [36m</h5>[39m
+                [36m<h5[39m
+                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
+                [36m>[39m
+                  [0mOnce you are satisfied with your degree plan, hit the "Save Changes" button to return to the main page where you can then click on you newly created degree plan to view it.[0m
+                [36m</h5>[39m
+                [36m<h5[39m
+                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
+                [36m>[39m
+                  [0mIf you want to save your degree plans, make sure to hit the "Save Degree Plans" button.[0m
+                [36m</h5>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"howtotext_savewarning"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"card bg-danger text-light"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"card-body"[39m
+                  [36m>[39m
+                    [36m<h5>[39m
+                      [0mWarning: Failing to hit the "Save Degree Plans" button and exiting the page will rewrite all of your changes back to the last save.[0m
+                    [36m</h5>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"dp_content"[39m
             [36m>[39m
-              [0mSave Degree Plans[0m
-            [36m</button>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"Dplist_container"[39m
+              [36m>[39m
+                [36m<div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"dp_cards"[39m
+                  [36m>[39m
+                    [36m<div[39m
+                      [33mclass[39m=[32m"d-flex justify-content-center align-items-center"[39m
+                      [33mstyle[39m=[32m"padding-bottom: 15px;"[39m
+                    [36m>[39m
+                      [36m<div[39m
+                        [33mclass[39m=[32m"card text-light"[39m
+                        [33mstyle[39m=[32m"width: 25rem; background-color: rgb(17, 106, 189);"[39m
+                      [36m>[39m
+                        [36m<a>[39m
+                          [36m<div[39m
+                            [33mclass[39m=[32m"dp_card card-body"[39m
+                          [36m>[39m
+                            [36m<div[39m
+                              [33mclass[39m=[32m"card-title h5"[39m
+                              [33mstyle[39m=[32m"text-align: center;"[39m
+                            [36m>[39m
+                              [0mDegree Plan 1[0m
+                            [36m</div>[39m
+                          [36m</div>[39m
+                        [36m</a>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"AddSaveButtons_container"[39m
+              [36m>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"add_btn btn btn-warning"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mAdd New Degree Plan[0m
+                [36m</button>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-success"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mSave Degree Plans[0m
+                [36m</button>[39m
+              [36m</div>[39m
+            [36m</div>[39m
           [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
@@ -161,18 +232,19 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |    20.7 |     7.57 |   11.71 |   20.88 |                                                                          
- src                             |    20.7 |     7.57 |   11.71 |   20.88 |                                                                          
-  AddDpSemestersCoursesModal.tsx |   27.02 |        0 |   12.12 |   26.02 | 54-55,68-113,117-125,138-141,149-170,176-191,195-203,219-230,249,270-352 
-  App.tsx                        |   56.75 |       25 |   30.76 |   61.76 | 37,45,57-86                                                              
+All files                        |    21.4 |     7.57 |   12.61 |    21.6 |                                                                          
+ src                             |    21.4 |     7.57 |   12.61 |    21.6 |                                                                          
+  AddDpSemestersCoursesModal.tsx |   27.02 |        0 |   12.12 |   26.02 | 54-55,68-113,117-125,138-141,149-170,176-191,195-203,221-234,253,274-388 
+  App.tsx                        |   56.75 |       25 |   30.76 |   61.76 | 39,47,60-89                                                              
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
   CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-60                                                                    
-  DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 24                                                                       
+  DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 36                                                                       
   DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                                 
-  DpView.tsx                     |       0 |      100 |       0 |       0 | 24-69                                                                    
-  EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-338                                                                   
+  DpView.tsx                     |       0 |      100 |       0 |       0 | 24-89                                                                    
+  EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-374                                                                   
+  Header.tsx                     |     100 |      100 |     100 |     100 |                                                                          
+  HowToTexxt.tsx                 |     100 |      100 |     100 |     100 |                                                                          
   ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                     
-  Name.tsx                       |   66.66 |      100 |      50 |   66.66 | 8                                                                        
  src/interfaces                  |       0 |        0 |       0 |       0 |                                                                          
   course.ts                      |       0 |        0 |       0 |       0 |                                                                          
   degreeplan.ts                  |       0 |        0 |       0 |       0 |                                                                          
@@ -181,5 +253,5 @@ All files                        |    20.7 |     7.57 |   11.71 |   20.88 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.063 s
+Time:        3.279 s
 Ran all test suites.
