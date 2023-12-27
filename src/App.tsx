@@ -1,8 +1,8 @@
 /* eslint-disable indent */
 /* eslint-disable no-extra-parens */
 import React, { useEffect, useState } from "react";
+import "./css_reset.css";
 import "./App.css";
-import { WelcomeMessage } from "./Name";
 import { DegreePlan } from "./interfaces/degreeplan";
 import dpsamplejson from "./sampleDpData.json"; //this is the real json data that the user will start with if they are new
 import { Button } from "react-bootstrap";
@@ -10,6 +10,8 @@ import { DpList } from "./DpList";
 import { AddDpSemestersCoursesModal } from "./AddDpSemestersCoursesModal";
 import all_courses_json from "./data/catalog.json";
 import { Course } from "./interfaces/course";
+import { Header } from "./Header";
+import { HowToText } from "./HowToTexxt";
 //import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function App(): JSX.Element {
@@ -49,6 +51,7 @@ export function App(): JSX.Element {
     const [degreePlans, setdegreePlans] = useState<DegreePlan[]>(loaded_data);
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
     const [availableId, setAvailableId] = useState<number>(default_id);
+    //const [showHowToText, setShowHowToText] = useState<boolean>(true);
     //handles opening and closing the popup (modal)
     const handleCloseModal = () => setShowAddModal(false);
     const handleShowModal = () => setShowAddModal(true);
@@ -89,33 +92,34 @@ export function App(): JSX.Element {
     }
 
     return (
-        <div>
+        <div className="body">
             <div className="App">
-                <header className="App-header">
-                    University of Delaware Computer Science Degree Plan
-                    <p>
-                        <WelcomeMessage></WelcomeMessage>
-                    </p>
-                    <p>
-                        <ul className="horizontal-list">
-                            <li> Aidan Bell </li>
-                            <li>Lawrence Collins </li>
-                            <li>Nicky Reigel</li>
-                            <li>Melvin Rau</li>
-                            <li>Victor Vasquez</li>
-                        </ul>
-                    </p>
-                </header>
-                <DpList
-                    dp={degreePlans}
-                    deleteDp={deleteDp}
-                    editDp={editDegreePlan}
-                    allCourses={allCourses}
-                ></DpList>
-                <Button className="add_btn" onClick={handleShowModal}>
-                    Add New Degree Plan
-                </Button>
-                <Button onClick={saveData}>Save Degree Plans</Button>
+                <div className="header_container">
+                    <Header></Header>
+                </div>
+                <HowToText></HowToText>
+                <div className="dp_content">
+                    <div className="Dplist_container">
+                        <DpList
+                            dp={degreePlans}
+                            deleteDp={deleteDp}
+                            editDp={editDegreePlan}
+                            allCourses={allCourses}
+                        ></DpList>
+                    </div>
+                    <div className="AddSaveButtons_container">
+                        <Button
+                            variant="warning"
+                            className="add_btn"
+                            onClick={handleShowModal}
+                        >
+                            Add New Degree Plan
+                        </Button>
+                        <Button variant="success" onClick={saveData}>
+                            Save Degree Plans
+                        </Button>
+                    </div>
+                </div>
                 <AddDpSemestersCoursesModal
                     show={showAddModal}
                     handleClose={handleCloseModal}

@@ -13,18 +13,32 @@ export const DpCard = ({
     handleClick: (quizId: number) => void;
 }) => {
     return (
-        <div>
+        <div className="dp_cards">
             {dp.map((dp: DegreePlan) => (
                 <div
                     key={dp.id}
                     className="d-flex justify-content-center align-items-center"
+                    style={{ paddingBottom: "15px" }}
                 >
-                    <Card text="light" bg="primary" style={{ width: "25rem" }}>
-                        <Card.Body>
-                            <Card.Title onClick={() => handleClick(dp.id)}>
-                                {dp.title}
-                            </Card.Title>
-                        </Card.Body>
+                    <Card
+                        text="light"
+                        style={{
+                            width: "25rem",
+                            backgroundColor: "rgb(17, 106, 189)"
+                        }}
+                    >
+                        <a>
+                            <Card.Body className="dp_card">
+                                <Card.Title
+                                    style={{
+                                        textAlign: "center"
+                                    }}
+                                    onClick={() => handleClick(dp.id)}
+                                >
+                                    {dp.title}
+                                </Card.Title>
+                            </Card.Body>
+                        </a>
                     </Card>
                 </div>
             ))}
