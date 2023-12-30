@@ -107,16 +107,17 @@ body {
     gap: 30px;
 }
 
-.textboxes a {
+.font_buttons_textboxes h3 {
     font-family: brevia, sans-serif;
     font-size: 24px;
     font-style: normal;
     color: white;
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* will make it so that underline appears when hoverd over, using psuedo class */
-.textboxes a:hover {
+.font_buttons_textboxes h3:hover {
     text-decoration: underline;
     text-decoration-thickness: 4px;
     text-decoration-color: white;
@@ -248,6 +249,12 @@ input:focus {
 .coursesDropdown a:hover {
     background-color: lightgrey;
 }
+
+/*This is start for the Tan Stack Table*/
+.ts_header {
+    padding: 2px 4px;
+}
+/*This is end for the Tan Stack Table*/
 
 /* Tablet view */
 @media (max-width: 768px) {

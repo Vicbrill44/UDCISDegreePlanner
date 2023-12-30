@@ -12,6 +12,7 @@ import all_courses_json from "./data/catalog.json";
 import { Course } from "./interfaces/course";
 import { Header } from "./Header";
 import { HowToText } from "./HowToTexxt";
+import { CoursesModal } from "./CoursesModal";
 //import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function App(): JSX.Element {
@@ -51,10 +52,14 @@ export function App(): JSX.Element {
     const [degreePlans, setdegreePlans] = useState<DegreePlan[]>(loaded_data);
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
     const [availableId, setAvailableId] = useState<number>(default_id);
+    const [showCoursesModal, setShowCoursesModal] = useState<boolean>(false);
     //const [showHowToText, setShowHowToText] = useState<boolean>(true);
-    //handles opening and closing the popup (modal)
-    const handleCloseModal = () => setShowAddModal(false);
-    const handleShowModal = () => setShowAddModal(true);
+    //handles opening and closing the addDp popup (modal)
+    const handleCloseAddModal = () => setShowAddModal(false);
+    const handleShowAddModal = () => setShowAddModal(true);
+    //handles opening and closing the courses popup (modal)
+    const handleCloseCoursesModal = () => setShowCoursesModal(false);
+    const handleShowCoursesModal = () => setShowCoursesModal(true);
 
     function addDp(newDp: DegreePlan) {
         const exists = degreePlans.find(
@@ -95,7 +100,7 @@ export function App(): JSX.Element {
         <div className="body">
             <div className="App">
                 <div className="header_container">
-                    <Header></Header>
+                    <Header handClick={handleShowCoursesModal}></Header>
                 </div>
                 <HowToText></HowToText>
                 <div className="dp_content">
@@ -111,7 +116,7 @@ export function App(): JSX.Element {
                         <Button
                             variant="warning"
                             className="add_btn"
-                            onClick={handleShowModal}
+                            onClick={handleShowAddModal}
                         >
                             Add New Degree Plan
                         </Button>
@@ -122,10 +127,15 @@ export function App(): JSX.Element {
                 </div>
                 <AddDpSemestersCoursesModal
                     show={showAddModal}
-                    handleClose={handleCloseModal}
+                    handleClose={handleCloseAddModal}
                     addDp={addDp}
                     allCourses={allCourses}
                 ></AddDpSemestersCoursesModal>
+                <CoursesModal
+                    show={showCoursesModal}
+                    handleClose={handleCloseCoursesModal}
+                    allCourses={allCourses}
+                ></CoursesModal>
             </div>
         </div>
     );
