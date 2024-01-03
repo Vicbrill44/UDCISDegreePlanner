@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (94 ms)
+  ✕ renders the course name somewhere (90 ms)
 
   ● renders the course name somewhere
 
@@ -57,33 +57,21 @@ FAIL src/App.test.tsx
                       [36m<div[39m
                         [33mclass[39m=[32m"font_buttons_textboxes"[39m
                       [36m>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"courses_text"[39m
-                        [36m>[39m
-                          [36m<a[39m
-                            [33mhref[39m=[32m"news.html"[39m
-                          [36m>[39m
+                        [36m<a>[39m
+                          [36m<h3>[39m
                             [0mCourses[0m
-                          [36m</a>[39m
-                        [36m</div>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"resources_text"[39m
-                        [36m>[39m
-                          [36m<a[39m
-                            [33mhref[39m=[32m"events.html"[39m
-                          [36m>[39m
+                          [36m</h3>[39m
+                        [36m</a>[39m
+                        [36m<a>[39m
+                          [36m<h3>[39m
                             [0mResources[0m
-                          [36m</a>[39m
-                        [36m</div>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"about_text"[39m
-                        [36m>[39m
-                          [36m<a[39m
-                            [33mhref[39m=[32m"matches.html"[39m
-                          [36m>[39m
+                          [36m</h3>[39m
+                        [36m</a>[39m
+                        [36m<a>[39m
+                          [36m<h3>[39m
                             [0mAbout[0m
-                          [36m</a>[39m
-                        [36m</div>[39m
+                          [36m</h3>[39m
+                        [36m</a>[39m
                       [36m</div>[39m
                     [36m</div>[39m
                   [36m</div>[39m
@@ -199,6 +187,12 @@ FAIL src/App.test.tsx
                   [0mAdd New Degree Plan[0m
                 [36m</button>[39m
                 [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-warning"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0mAdd New Course[0m
+                [36m</button>[39m
+                [36m<button[39m
                   [33mclass[39m=[32m"btn btn-success"[39m
                   [33mtype[39m=[32m"button"[39m
                 [36m>[39m
@@ -206,6 +200,7 @@ FAIL src/App.test.tsx
                 [36m</button>[39m
               [36m</div>[39m
             [36m</div>[39m
+            [36m<div />[39m
           [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
@@ -232,12 +227,14 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |    21.4 |     7.57 |   12.61 |    21.6 |                                                                          
- src                             |    21.4 |     7.57 |   12.61 |    21.6 |                                                                          
+All files                        |   24.76 |     9.72 |   12.67 |   25.24 |                                                                          
+ src                             |   24.76 |     9.72 |   12.67 |   25.24 |                                                                          
+  AddCourseModal.tsx             |   54.54 |       50 |      50 |   54.54 | 45-48,82-95                                                              
   AddDpSemestersCoursesModal.tsx |   27.02 |        0 |   12.12 |   26.02 | 54-55,68-113,117-125,138-141,149-170,176-191,195-203,221-234,253,274-388 
-  App.tsx                        |   56.75 |       25 |   30.76 |   61.76 | 39,47,60-89                                                              
+  App.tsx                        |   58.33 |       30 |   26.31 |   65.38 | 34,54,62,85-124                                                          
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
   CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-60                                                                    
+  CoursesModal.tsx               |   66.66 |      100 |      50 |   66.66 | 19                                                                       
   DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 36                                                                       
   DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                                 
   DpView.tsx                     |       0 |      100 |       0 |       0 | 24-89                                                                    
@@ -245,6 +242,8 @@ All files                        |    21.4 |     7.57 |   12.61 |    21.6 |
   Header.tsx                     |     100 |      100 |     100 |     100 |                                                                          
   HowToTexxt.tsx                 |     100 |      100 |     100 |     100 |                                                                          
   ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                     
+  TaskTable.tsx                  |    6.25 |      100 |       0 |    6.25 | 26-117                                                                   
+  TaskTableFilters.tsx           |   11.11 |        0 |       0 |   14.28 | 19-31                                                                    
  src/interfaces                  |       0 |        0 |       0 |       0 |                                                                          
   course.ts                      |       0 |        0 |       0 |       0 |                                                                          
   degreeplan.ts                  |       0 |        0 |       0 |       0 |                                                                          
@@ -253,5 +252,5 @@ All files                        |    21.4 |     7.57 |   12.61 |    21.6 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.279 s
+Time:        3.503 s
 Ran all test suites.
