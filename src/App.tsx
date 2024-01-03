@@ -13,16 +13,30 @@ import { Course } from "./interfaces/course";
 import { Header } from "./Header";
 import { HowToText } from "./HowToTexxt";
 import { CoursesModal } from "./CoursesModal";
+import { AddCourseModal } from "./AddCourseModal";
 //import { CourseSearchDropDown } from "./CourseSearchDropdown";
 
 export function App(): JSX.Element {
     //load in courses
     const [allCourses, setAllCourses] = useState<Course[]>([]);
+    const [newAddedCourses, setNewAddedCourses] = useState<Course[]>([]);
+    const SAVED_ADDEDCOURSES = "MY-PAGE-ADDEDCOURSES";
     useEffect(() => {
         const extractedCourses: Course[] = Object.values(
             all_courses_json
         ).flatMap((departmentCourses) => Object.values(departmentCourses));
         setAllCourses(extractedCourses);
+
+        //load in manually added courses
+        let default_addedCourses: Course[] = [];
+        const previousCourses = localStorage.getItem(SAVED_ADDEDCOURSES);
+        if (previousCourses !== null) {
+            default_addedCourses = JSON.parse(previousCourses);
+        }
+        setAllCourses((existingCourses) => [
+            ...existingCourses,
+            ...default_addedCourses
+        ]);
     }, []);
 
     //load in json data
@@ -53,6 +67,8 @@ export function App(): JSX.Element {
     const [showAddModal, setShowAddModal] = useState<boolean>(false);
     const [availableId, setAvailableId] = useState<number>(default_id);
     const [showCoursesModal, setShowCoursesModal] = useState<boolean>(false);
+    const [showAddCourseModal, setShowAddCourseModal] =
+        useState<boolean>(false);
     //const [showHowToText, setShowHowToText] = useState<boolean>(true);
     //handles opening and closing the addDp popup (modal)
     const handleCloseAddModal = () => setShowAddModal(false);
@@ -60,6 +76,16 @@ export function App(): JSX.Element {
     //handles opening and closing the courses popup (modal)
     const handleCloseCoursesModal = () => setShowCoursesModal(false);
     const handleShowCoursesModal = () => setShowCoursesModal(true);
+    //will handle opening and closing the addCourseModal
+    const handleCloseAddCourseModal = () => setShowAddCourseModal(false);
+    const handleShowAddCourseModal = () => setShowAddCourseModal(true);
+
+    //will be what happens when we add a new course: will have to save the new courses added in a localstorage
+    const addCourse = (newCourse: Course) => {
+        console.log(newCourse);
+        setNewAddedCourses([...newAddedCourses, newCourse]);
+        setAllCourses([...allCourses, newCourse]);
+    };
 
     function addDp(newDp: DegreePlan) {
         const exists = degreePlans.find(
@@ -86,6 +112,10 @@ export function App(): JSX.Element {
     function saveData() {
         localStorage.setItem(SAVE_KEY, JSON.stringify(degreePlans));
         localStorage.setItem(SAVED_ID, JSON.stringify(availableId));
+        localStorage.setItem(
+            SAVED_ADDEDCOURSES,
+            JSON.stringify(newAddedCourses)
+        );
     }
 
     function editDegreePlan(id: number, newDp: DegreePlan) {
@@ -120,6 +150,12 @@ export function App(): JSX.Element {
                         >
                             Add New Degree Plan
                         </Button>
+                        <Button
+                            variant="warning"
+                            onClick={handleShowAddCourseModal}
+                        >
+                            Add New Course
+                        </Button>
                         <Button variant="success" onClick={saveData}>
                             Save Degree Plans
                         </Button>
@@ -136,6 +172,11 @@ export function App(): JSX.Element {
                     handleClose={handleCloseCoursesModal}
                     allCourses={allCourses}
                 ></CoursesModal>
+                <AddCourseModal
+                    show={showAddCourseModal}
+                    handleClose={handleCloseAddCourseModal}
+                    addCourse={addCourse}
+                ></AddCourseModal>
             </div>
         </div>
     );

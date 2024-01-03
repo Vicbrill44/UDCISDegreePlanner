@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable no-extra-parens */
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { TaskTable } from "./TaskTable";
 import { Course } from "./interfaces/course";
@@ -18,26 +18,29 @@ export function CoursesModal({
     const handleCloseModal = () => {
         handleClose();
     };
+
     return (
-        <Modal
-            show={show}
-            onHide={handleClose}
-            fullscreen={true}
-            animation={false}
-        >
-            <Modal.Header closeButton>
-                <Modal.Title>
-                    <h3>Add a New Course and View all Courses</h3>
-                </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-                <TaskTable data={allCourses}></TaskTable>
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={handleCloseModal}>
-                    Close
-                </Button>
-            </Modal.Footer>
-        </Modal>
+        <div>
+            <Modal
+                show={show}
+                onHide={handleClose}
+                fullscreen={true}
+                animation={false}
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title>
+                        <h3>View all Courses</h3>
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <TaskTable data={allCourses}></TaskTable>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
     );
 }

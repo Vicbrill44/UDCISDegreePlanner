@@ -25,7 +25,7 @@ export const Header = ({ handClick }: { handClick: () => void }) => {
                     <div className="textboxes">
                         <div className="font_buttons_textboxes">
                             <a>
-                                <h3 onClick={handClick}>Course</h3>
+                                <h3 onClick={handClick}>Courses</h3>
                             </a>
                             <a>
                                 <h3>Resources</h3>
