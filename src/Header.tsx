@@ -2,7 +2,7 @@
 import React from "react";
 import blueHensImage from "./assets/ud_logo_sm.png";
 
-export const Header = () => {
+export const Header = ({ handClick }: { handClick: () => void }) => {
     return (
         <div className="header_box">
             <div className="header_container1">
@@ -24,15 +24,15 @@ export const Header = () => {
                 <div className="text_buttons_cont">
                     <div className="textboxes">
                         <div className="font_buttons_textboxes">
-                            <div className="courses_text">
-                                <a href="news.html">Courses</a>
-                            </div>
-                            <div className="resources_text">
-                                <a href="events.html">Resources</a>
-                            </div>
-                            <div className="about_text">
-                                <a href="matches.html">About</a>
-                            </div>
+                            <a>
+                                <h3 onClick={handClick}>Courses</h3>
+                            </a>
+                            <a>
+                                <h3>Resources</h3>
+                            </a>
+                            <a>
+                                <h3>About</h3>
+                            </a>
                         </div>
                     </div>
                 </div>
