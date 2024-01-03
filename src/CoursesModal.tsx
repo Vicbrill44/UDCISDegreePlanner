@@ -1,6 +1,6 @@
 /* eslint-disable indent */
 /* eslint-disable no-extra-parens */
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 import { TaskTable } from "./TaskTable";
 import { Course } from "./interfaces/course";

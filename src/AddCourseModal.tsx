@@ -91,13 +91,7 @@ export function AddCourseModal({
                         });
                     }}
                 >
-                    {({
-                        handleSubmit,
-                        handleChange,
-                        values,
-                        touched,
-                        errors
-                    }) => (
+                    {({ handleSubmit, handleChange, values, errors }) => (
                         <Form noValidate onSubmit={handleSubmit}>
                             <Row className="mb-3">
                                 <Form.Group
