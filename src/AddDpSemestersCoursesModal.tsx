@@ -64,15 +64,28 @@ export function AddDpSemestersCoursesModal({
         });
     };
 
+    //selectedSemester (term; fall,winter, spring summer)
+    type TermValue = Record<string, number>;
+    const termOrder: TermValue = { Summer: 4, Spring: 3, Winter: 2, Fall: 1 };
+
     const addSemester = () => {
         const newSemesterObj: Semester = {
             id: semesters.length + 1,
             title: selectedSemester + " " + semesterYear.toString(),
             courses: [],
             totalCredits: 0,
-            year: semesterYear
+            year: semesterYear,
+            term: selectedSemester
         };
-        setSemesters([...semesters, newSemesterObj]);
+        setSemesters(
+            [...semesters, newSemesterObj].sort((a, b) => {
+                if (a.year !== b.year) {
+                    return a.year - b.year; // Sort by year first
+                } else {
+                    return termOrder[a.term] - termOrder[b.term]; // Then by term
+                }
+            })
+        );
     };
 
     function creditsToNum(credits: string): number {
