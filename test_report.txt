@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (90 ms)
+  ✕ renders the course name somewhere (71 ms)
 
   ● renders the course name somewhere
 
@@ -227,10 +227,10 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |   24.76 |     9.72 |   12.67 |   25.24 |                                                                          
- src                             |   24.76 |     9.72 |   12.67 |   25.24 |                                                                          
+All files                        |   24.46 |     9.21 |    12.5 |   24.92 |                                                                          
+ src                             |   24.46 |     9.21 |    12.5 |   24.92 |                                                                          
   AddCourseModal.tsx             |   54.54 |       50 |      50 |   54.54 | 45-48,82-95                                                              
-  AddDpSemestersCoursesModal.tsx |   27.02 |        0 |   12.12 |   26.02 | 54-55,68-113,117-125,138-141,149-170,176-191,195-203,221-234,253,274-388 
+  AddDpSemestersCoursesModal.tsx |   26.92 |        0 |   11.76 |   25.97 | 54-55,72-126,130-138,151-154,162-183,189-204,208-216,234-247,266,287-401 
   App.tsx                        |   58.33 |       30 |   26.31 |   65.38 | 34,54,62,85-124                                                          
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
   CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-60                                                                    
@@ -238,7 +238,7 @@ All files                        |   24.76 |     9.72 |   12.67 |   25.24 |
   DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 36                                                                       
   DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                                 
   DpView.tsx                     |       0 |      100 |       0 |       0 | 24-89                                                                    
-  EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-374                                                                   
+  EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-386                                                                   
   Header.tsx                     |     100 |      100 |     100 |     100 |                                                                          
   HowToTexxt.tsx                 |     100 |      100 |     100 |     100 |                                                                          
   ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                     
@@ -252,5 +252,5 @@ All files                        |   24.76 |     9.72 |   12.67 |   25.24 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.503 s
+Time:        3.379 s
 Ran all test suites.
