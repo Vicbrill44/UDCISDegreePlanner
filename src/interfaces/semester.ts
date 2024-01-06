@@ -5,4 +5,5 @@ export interface Semester {
     totalCredits: number;
     year: number;
     courses: Course[];
+    term: string;
 }

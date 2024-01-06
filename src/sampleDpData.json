@@ -5,9 +5,10 @@
         "totalCredits": 28,
         "semestersList": [
             {
-                "title": "Fall",
+                "title": "Fall 2025",
                 "totalCredits": 5,
                 "year": 2025,
+                "term": "Fall",
                 "id": 16,
                 "courses": [
                     {
@@ -43,10 +44,11 @@
                 ]
             },
             {
-                "title": "Fall",
+                "title": "Fall 2025",
                 "totalCredits": 11,
                 "year": 2025,
                 "id": 9,
+                "term": "Fall",
                 "courses": [
                     {
                         "code": "SCEN 119",
@@ -81,10 +83,11 @@
                 ]
             },
             {
-                "title": "Fall",
+                "title": "Fall 2025",
                 "totalCredits": 8,
                 "year": 2025,
                 "id": 15,
+                "term": "Fall",
                 "courses": [
                     {
                         "code": "MATH 243",
@@ -119,10 +122,11 @@
                 ]
             },
             {
-                "title": "Spring",
+                "title": "Spring 2025",
                 "totalCredits": 4,
                 "year": 2025,
                 "id": 13,
+                "term": "Spring",
                 "courses": [
                     {
                         "code": "HOSP 266",
