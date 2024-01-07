@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (71 ms)
+  ✕ renders the course name somewhere (69 ms)
 
   ● renders the course name somewhere
 
@@ -227,8 +227,8 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |   24.46 |     9.21 |    12.5 |   24.92 |                                                                          
- src                             |   24.46 |     9.21 |    12.5 |   24.92 |                                                                          
+All files                        |   23.69 |     8.33 |   11.84 |   24.24 |                                                                          
+ src                             |   23.25 |     8.33 |   11.84 |   23.78 |                                                                          
   AddCourseModal.tsx             |   54.54 |       50 |      50 |   54.54 | 45-48,82-95                                                              
   AddDpSemestersCoursesModal.tsx |   26.92 |        0 |   11.76 |   25.97 | 54-55,72-126,130-138,151-154,162-183,189-204,208-216,234-247,266,287-401 
   App.tsx                        |   58.33 |       30 |   26.31 |   65.38 | 34,54,62,85-124                                                          
@@ -237,20 +237,22 @@ All files                        |   24.46 |     9.21 |    12.5 |   24.92 |
   CoursesModal.tsx               |   66.66 |      100 |      50 |   66.66 | 19                                                                       
   DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 36                                                                       
   DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                                 
-  DpView.tsx                     |       0 |      100 |       0 |       0 | 24-89                                                                    
+  DpView.tsx                     |       0 |        0 |       0 |       0 | 26-146                                                                   
   EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-386                                                                   
   Header.tsx                     |     100 |      100 |     100 |     100 |                                                                          
   HowToTexxt.tsx                 |     100 |      100 |     100 |     100 |                                                                          
   ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                     
   TaskTable.tsx                  |    6.25 |      100 |       0 |    6.25 | 26-117                                                                   
   TaskTableFilters.tsx           |   11.11 |        0 |       0 |   14.28 | 19-31                                                                    
- src/interfaces                  |       0 |        0 |       0 |       0 |                                                                          
+ src/interfaces                  |     100 |      100 |     100 |     100 |                                                                          
+  coreCsCourses.tsx              |     100 |      100 |     100 |     100 |                                                                          
   course.ts                      |       0 |        0 |       0 |       0 |                                                                          
   degreeplan.ts                  |       0 |        0 |       0 |       0 |                                                                          
+  scienceRequirement.tsx         |     100 |      100 |     100 |     100 |                                                                          
   semester.ts                    |       0 |        0 |       0 |       0 |                                                                          
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.379 s
+Time:        3.422 s
 Ran all test suites.
