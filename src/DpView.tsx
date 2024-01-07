@@ -7,6 +7,8 @@ import { DegreePlan } from "./interfaces/degreeplan";
 import { Semester } from "./interfaces/semester";
 import { Course } from "./interfaces/course";
 import { EditingDp } from "./EditingDp";
+import { scienceRequirements } from "./interfaces/scienceRequirement";
+import { coreCsCourses } from "./interfaces/coreCsCourses";
 
 export function DpView({
     dp,
@@ -29,6 +31,39 @@ export function DpView({
         deleteDp(dp.id);
         resetView();
     };
+    function checkIfRequirementMet(degreePlan: DegreePlan): string | null {
+        const courses = degreePlan.semestersList.flatMap((semester) =>
+            semester.courses.map((course) => course.code)
+        );
+
+        for (const requirement of scienceRequirements) {
+            const isMet = requirement.requiredCourses.every((reqCourse) =>
+                courses.includes(reqCourse)
+            );
+
+            if (isMet) {
+                return requirement.optionName; // Return the name of the met requirement
+            }
+        }
+
+        return null;
+    }
+    function checkIfCoreRequirementsMet(degreePlan: DegreePlan): boolean {
+        const courses = degreePlan.semestersList.flatMap((semester) =>
+            semester.courses.map((course) => course.code)
+        );
+
+        const isMet = coreCsCourses.every((coreCourse) =>
+            courses.includes(coreCourse)
+        );
+
+        if (isMet) {
+            return true;
+        }
+
+        return false;
+    }
+
     return (
         <div>
             <Container>
@@ -50,6 +85,28 @@ export function DpView({
                     >
                         <h3>Total Credits: {dp.totalCredits}</h3>
                     </Col>
+                </Row>
+                <Row className="d-flex justify-content-end">
+                    {checkIfRequirementMet(dp) === null && (
+                        <Card bg="warning" body style={{ width: "35rem" }}>
+                            <p>
+                                You have not met the science requirement, please
+                                take a look at the resources page for more
+                                information
+                            </p>
+                        </Card>
+                    )}
+                </Row>
+                <Row className="d-flex justify-content-end">
+                    {checkIfCoreRequirementsMet(dp) === false && (
+                        <Card bg="warning" body style={{ width: "35rem" }}>
+                            <p>
+                                You have not met the core computer science
+                                requirement, please take a look at the resources
+                                page for more information
+                            </p>
+                        </Card>
+                    )}
                 </Row>
                 <Row>
                     <Table borderless>
