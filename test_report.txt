@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (69 ms)
+  ✕ renders the course name somewhere (70 ms)
 
   ● renders the course name somewhere
 
@@ -192,12 +192,6 @@ FAIL src/App.test.tsx
                 [36m>[39m
                   [0mAdd New Course[0m
                 [36m</button>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-success"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mSave Degree Plans[0m
-                [36m</button>[39m
               [36m</div>[39m
             [36m</div>[39m
             [36m<div />[39m
@@ -227,11 +221,11 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |   23.69 |     8.33 |   11.84 |   24.24 |                                                                          
- src                             |   23.25 |     8.33 |   11.84 |   23.78 |                                                                          
+All files                        |   25.57 |    10.71 |   13.07 |    26.2 |                                                                          
+ src                             |   25.14 |    10.71 |   13.07 |   25.75 |                                                                          
   AddCourseModal.tsx             |   54.54 |       50 |      50 |   54.54 | 45-48,82-95                                                              
   AddDpSemestersCoursesModal.tsx |   26.92 |        0 |   11.76 |   25.97 | 54-55,72-126,130-138,151-154,162-183,189-204,208-216,234-247,266,287-401 
-  App.tsx                        |   58.33 |       30 |   26.31 |   65.38 | 34,54,62,85-124                                                          
+  App.tsx                        |   67.74 |       50 |      35 |   75.92 | 34,99-130                                                                
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
   CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-60                                                                    
   CoursesModal.tsx               |   66.66 |      100 |      50 |   66.66 | 19                                                                       
@@ -254,5 +248,5 @@ All files                        |   23.69 |     8.33 |   11.84 |   24.24 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.422 s
+Time:        3.443 s
 Ran all test suites.
