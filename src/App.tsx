@@ -80,6 +80,20 @@ export function App(): JSX.Element {
     const handleCloseAddCourseModal = () => setShowAddCourseModal(false);
     const handleShowAddCourseModal = () => setShowAddCourseModal(true);
 
+    //will check if the degreePlans and availableId states have changed and if so update the local storage
+    useEffect(() => {
+        localStorage.setItem(SAVE_KEY, JSON.stringify(degreePlans));
+        localStorage.setItem(SAVED_ID, JSON.stringify(availableId));
+    }, [degreePlans, availableId]);
+
+    //will check if the newAddedCourses state changed and if so update the local storage
+    useEffect(() => {
+        localStorage.setItem(
+            SAVED_ADDEDCOURSES,
+            JSON.stringify(newAddedCourses)
+        );
+    }, [newAddedCourses]);
+
     //will be what happens when we add a new course: will have to save the new courses added in a localstorage
     const addCourse = (newCourse: Course) => {
         console.log(newCourse);
@@ -108,14 +122,6 @@ export function App(): JSX.Element {
     function deleteDp(id: number) {
         const updatedDps = degreePlans.filter((dp) => dp.id !== id);
         setdegreePlans(updatedDps);
-    }
-    function saveData() {
-        localStorage.setItem(SAVE_KEY, JSON.stringify(degreePlans));
-        localStorage.setItem(SAVED_ID, JSON.stringify(availableId));
-        localStorage.setItem(
-            SAVED_ADDEDCOURSES,
-            JSON.stringify(newAddedCourses)
-        );
     }
 
     function editDegreePlan(id: number, newDp: DegreePlan) {
@@ -155,9 +161,6 @@ export function App(): JSX.Element {
                             onClick={handleShowAddCourseModal}
                         >
                             Add New Course
-                        </Button>
-                        <Button variant="success" onClick={saveData}>
-                            Save Degree Plans
                         </Button>
                     </div>
                 </div>
