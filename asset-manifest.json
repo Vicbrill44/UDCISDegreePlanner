@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/UDCISDegreePlanner/static/css/main.6236f834.css",
-    "main.js": "/UDCISDegreePlanner/static/js/main.947f143f.js",
+    "main.js": "/UDCISDegreePlanner/static/js/main.8a84c31f.js",
     "static/js/787.4ef7427d.chunk.js": "/UDCISDegreePlanner/static/js/787.4ef7427d.chunk.js",
     "index.html": "/UDCISDegreePlanner/index.html",
     "main.6236f834.css.map": "/UDCISDegreePlanner/static/css/main.6236f834.css.map",
-    "main.947f143f.js.map": "/UDCISDegreePlanner/static/js/main.947f143f.js.map",
+    "main.8a84c31f.js.map": "/UDCISDegreePlanner/static/js/main.8a84c31f.js.map",
     "787.4ef7427d.chunk.js.map": "/UDCISDegreePlanner/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6236f834.css",
-    "static/js/main.947f143f.js"
+    "static/js/main.8a84c31f.js"
   ]
 }
