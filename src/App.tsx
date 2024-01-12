@@ -179,6 +179,7 @@ export function App(): JSX.Element {
                     show={showAddCourseModal}
                     handleClose={handleCloseAddCourseModal}
                     addCourse={addCourse}
+                    allCourses={allCourses}
                 ></AddCourseModal>
             </div>
         </div>

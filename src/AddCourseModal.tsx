@@ -10,11 +10,13 @@ import * as yup from "yup";
 export function AddCourseModal({
     show,
     handleClose,
-    addCourse
+    addCourse,
+    allCourses
 }: {
     show: boolean;
     handleClose: () => void;
     addCourse: (newCourse: Course) => void;
+    allCourses: Course[];
 }): JSX.Element {
     const [newCourse, setNewCourse] = useState<Course>({
         code: "",
@@ -30,10 +32,27 @@ export function AddCourseModal({
     const { Formik } = formik;
 
     const schema = yup.object().shape({
-        code: yup.string().required(),
+        code: yup
+            .string()
+            .required()
+            .test(
+                "is-not-duplicate",
+                "already exists",
+                (value) =>
+                    !allCourses.some(
+                        (course) => course.code === value.toUpperCase()
+                    )
+            ),
         name: yup.string().required(),
         descr: yup.string(),
-        credits: yup.string().required(),
+        credits: yup
+            .string()
+            .required()
+            .test(
+                "is-number",
+                "must be a number",
+                (value) => !Number.isNaN(Number(value))
+            ),
         preReq: yup.string(),
         restrict: yup.string(),
         breadth: yup.string(),
@@ -100,19 +119,18 @@ export function AddCourseModal({
                                     controlId="validationFormikCode"
                                 >
                                     <Form.Label>Course Code</Form.Label>
-                                    <InputGroup hasValidation>
-                                        <Form.Control
-                                            type="text"
-                                            placeholder="ENGL 365"
-                                            name="code"
-                                            value={values.code}
-                                            onChange={handleChange}
-                                            isInvalid={!!errors.code}
-                                        />
-                                        <Form.Control.Feedback type="invalid">
-                                            {errors.code}
-                                        </Form.Control.Feedback>
-                                    </InputGroup>
+
+                                    <Form.Control
+                                        type="text"
+                                        placeholder="ENGL 365"
+                                        name="code"
+                                        value={values.code.toUpperCase()}
+                                        onChange={handleChange}
+                                        isInvalid={!!errors.code}
+                                    />
+                                    <Form.Control.Feedback type="invalid">
+                                        {errors.code}
+                                    </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group
                                     as={Col}
@@ -120,6 +138,7 @@ export function AddCourseModal({
                                     controlId="validationFormikCredits"
                                 >
                                     <Form.Label>Credits</Form.Label>
+
                                     <Form.Control
                                         type="text"
                                         name="credits"
