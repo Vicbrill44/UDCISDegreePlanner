@@ -9,6 +9,7 @@ import { Course } from "./interfaces/course";
 import { EditingDp } from "./EditingDp";
 import { scienceRequirements } from "./interfaces/scienceRequirement";
 import { coreCsCourses } from "./interfaces/coreCsCourses";
+import { DpDelWarningModal } from "./DpDelWarning";
 
 export function DpView({
     dp,
@@ -26,6 +27,11 @@ export function DpView({
     const [showEditModal, setShowEditModal] = useState<boolean>(false);
     const handleCloseModal = () => setShowEditModal(false);
     const handleShowModal = () => setShowEditModal(true);
+
+    //delete dp warning modal funct.
+    const [showDpDelModal, setShowDpDelModal] = useState<boolean>(false);
+    const handleCloseDpDelModal = () => setShowDpDelModal(false);
+    const handleShowDpDelModal = () => setShowDpDelModal(true);
 
     const deleteDegreePlan = () => {
         deleteDp(dp.id);
@@ -221,9 +227,14 @@ export function DpView({
                 <Button variant="danger" onClick={resetView}>
                     Exit
                 </Button>
-                <Button variant="danger" onClick={deleteDegreePlan}>
+                <Button variant="danger" onClick={handleShowDpDelModal}>
                     Delete
                 </Button>
+                <DpDelWarningModal
+                    show={showDpDelModal}
+                    handleClose={handleCloseDpDelModal}
+                    deleteDp={deleteDegreePlan}
+                ></DpDelWarningModal>
                 <Button variant="warning" onClick={handleShowModal}>
                     Edit
                 </Button>
