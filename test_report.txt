@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (71 ms)
+  ✕ renders the course name somewhere (73 ms)
 
   ● renders the course name somewhere
 
@@ -221,9 +221,9 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |   24.79 |    10.71 |   12.65 |   25.51 |                                                                          
- src                             |   24.36 |    10.71 |   12.65 |   25.07 |                                                                          
-  AddCourseModal.tsx             |   54.54 |       50 |      50 |   54.54 | 45-48,82-95                                                              
+All files                        |   24.58 |    10.71 |   12.42 |   25.29 |                                                                          
+ src                             |   24.16 |    10.71 |   12.42 |   24.85 |                                                                          
+  AddCourseModal.tsx             |   42.85 |       50 |   28.57 |   42.85 | 42-54,64-67,101-114                                                      
   AddDpSemestersCoursesModal.tsx |   26.92 |        0 |   11.76 |   25.97 | 54-55,72-126,130-138,151-154,162-183,189-204,208-216,234-247,266,287-401 
   App.tsx                        |   67.74 |       50 |      35 |   75.92 | 34,99-130                                                                
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
@@ -249,5 +249,5 @@ All files                        |   24.79 |    10.71 |   12.65 |   25.51 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.458 s
+Time:        3.611 s
 Ran all test suites.
