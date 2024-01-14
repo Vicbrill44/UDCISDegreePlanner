@@ -230,11 +230,6 @@ export function DpView({
                 <Button variant="danger" onClick={handleShowDpDelModal}>
                     Delete
                 </Button>
-                <DpDelWarningModal
-                    show={showDpDelModal}
-                    handleClose={handleCloseDpDelModal}
-                    deleteDp={deleteDegreePlan}
-                ></DpDelWarningModal>
                 <Button variant="warning" onClick={handleShowModal}>
                     Edit
                 </Button>
@@ -245,6 +240,11 @@ export function DpView({
                     editDp={editDp}
                     allCourses={allCourses}
                 ></EditingDp>
+                <DpDelWarningModal
+                    show={showDpDelModal}
+                    handleClose={handleCloseDpDelModal}
+                    deleteDp={deleteDegreePlan}
+                ></DpDelWarningModal>
             </div>
         </div>
     );
