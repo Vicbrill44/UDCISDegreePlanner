@@ -3,7 +3,7 @@
 > react-scripts test --coverage
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (73 ms)
+  ✕ renders the course name somewhere (70 ms)
 
   ● renders the course name somewhere
 
@@ -123,23 +123,13 @@ FAIL src/App.test.tsx
                 [36m<h5[39m
                   [33mstyle[39m=[32m"padding-top: 15px;"[39m
                 [36m>[39m
-                  [0mIf you want to save your degree plans, make sure to hit the "Save Degree Plans" button.[0m
+                  [0mYou can create a new course by clicking the "Add New Course" button.[0m
                 [36m</h5>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"howtotext_savewarning"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"card bg-danger text-light"[39m
+                [36m<h5[39m
+                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
                 [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"card-body"[39m
-                  [36m>[39m
-                    [36m<h5>[39m
-                      [0mWarning: Failing to hit the "Save Degree Plans" button and exiting the page will rewrite all of your changes back to the last save.[0m
-                    [36m</h5>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
+                  [0mTo edit or delete a course click "Courses" and find the course you want to edit or delete.[0m
+                [36m</h5>[39m
               [36m</div>[39m
             [36m</div>[39m
             [36m<div[39m
@@ -221,23 +211,25 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |   24.58 |    10.71 |   12.42 |   25.29 |                                                                          
- src                             |   24.16 |    10.71 |   12.42 |   24.85 |                                                                          
+All files                        |   21.56 |       10 |   10.86 |   22.16 |                                                                          
+ src                             |   21.18 |       10 |   10.86 |   21.76 |                                                                          
   AddCourseModal.tsx             |   42.85 |       50 |   28.57 |   42.85 | 42-54,64-67,101-114                                                      
   AddDpSemestersCoursesModal.tsx |   26.92 |        0 |   11.76 |   25.97 | 54-55,72-126,130-138,151-154,162-183,189-204,208-216,234-247,266,287-401 
-  App.tsx                        |   67.74 |       50 |      35 |   75.92 | 34,99-130                                                                
+  App.tsx                        |   62.68 |    41.66 |   29.16 |   69.49 | 34,99-148                                                                
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
   CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-60                                                                    
-  CoursesModal.tsx               |   66.66 |      100 |      50 |   66.66 | 19                                                                       
+  CoursesModal.tsx               |   66.66 |      100 |      50 |   66.66 | 23                                                                       
+  DelCourseWarningModal.tsx      |       0 |      100 |       0 |       0 | 18-26                                                                    
   DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 36                                                                       
   DpDelWarning.tsx               |       0 |      100 |       0 |       0 | 16-24                                                                    
   DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                                 
   DpView.tsx                     |       0 |        0 |       0 |       0 | 27-152                                                                   
+  EditCourseModal.tsx            |       0 |        0 |       0 |       0 | 23-97                                                                    
   EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-386                                                                   
   Header.tsx                     |     100 |      100 |     100 |     100 |                                                                          
   HowToTexxt.tsx                 |     100 |      100 |     100 |     100 |                                                                          
   ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                     
-  TaskTable.tsx                  |    6.25 |      100 |       0 |    6.25 | 26-117                                                                   
+  TaskTable.tsx                  |       0 |        0 |       0 |       0 | 33-193                                                                   
   TaskTableFilters.tsx           |   11.11 |        0 |       0 |   14.28 | 19-31                                                                    
  src/interfaces                  |     100 |      100 |     100 |     100 |                                                                          
   coreCsCourses.tsx              |     100 |      100 |     100 |     100 |                                                                          
@@ -249,5 +241,5 @@ All files                        |   24.58 |    10.71 |   12.42 |   25.29 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.611 s
+Time:        3.56 s
 Ran all test suites.
