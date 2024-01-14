@@ -9,11 +9,15 @@ import { Button, Modal } from "react-bootstrap";
 export function CoursesModal({
     show,
     handleClose,
-    allCourses
+    allCourses,
+    editCourse,
+    delCourse
 }: {
     show: boolean;
     handleClose: () => void;
     allCourses: Course[];
+    editCourse: (editableCourse: Course) => void;
+    delCourse: (courseCode: string) => void;
 }): JSX.Element {
     const handleCloseModal = () => {
         handleClose();
@@ -33,7 +37,11 @@ export function CoursesModal({
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <TaskTable data={allCourses}></TaskTable>
+                    <TaskTable
+                        data={allCourses}
+                        editCourse={editCourse}
+                        delCourse={delCourse}
+                    ></TaskTable>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={handleCloseModal}>

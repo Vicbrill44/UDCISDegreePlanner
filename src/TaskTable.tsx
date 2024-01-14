@@ -9,6 +9,8 @@ import { Course } from "./interfaces/course";
 import React, { useState } from "react";
 import { Table as BTable, Button, ButtonGroup } from "react-bootstrap";
 import TaskTableFilters from "./TaskTableFilters";
+import { EditCourseModal } from "./EditCourseModal";
+import { DelCourseWarningModal } from "./DelCourseWarningModal";
 
 type TableCellProps<T> = {
     getValue: () => T;
@@ -19,42 +21,115 @@ type Filter = {
     value: string;
 };
 
-const columns = [
-    {
-        accessorKey: "code",
-        header: "code",
-        cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
-    },
-    {
-        accessorKey: "name",
-        header: "name",
-        cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
-    },
-    {
-        accessorKey: "descr",
-        header: "descr",
-        cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
-    },
-    {
-        accessorKey: "credits",
-        header: "credits",
-        cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
-    },
-    {
-        accessorKey: "preReq",
-        header: "preReq",
-        cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
-    },
-    {
-        accessorKey: "restrict",
-        header: "restrict",
-        cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
-    }
-];
-
-export function TaskTable({ data }: { data: Course[] }): JSX.Element {
-    //const [courses, setCourses] = useState<Course[]>(data);
+export function TaskTable({
+    data,
+    editCourse,
+    delCourse
+}: {
+    data: Course[];
+    editCourse: (editableCourse: Course) => void;
+    delCourse: (courseCode: string) => void;
+}): JSX.Element {
     const [columnFilters, setColumnFilters] = useState<Filter[]>([]);
+    const [editableCourse, setEditableCourse] = useState<Course>({
+        code: "",
+        name: "",
+        descr: "",
+        credits: "",
+        preReq: "",
+        restrict: "",
+        breadth: "",
+        typ: ""
+    });
+
+    const [courseToDel, setCourseToDel] = useState<string>("");
+
+    //delete course warning modal funct.
+    const [showCourseDelModal, setShowCourseDelModal] =
+        useState<boolean>(false);
+    const handleCloseCourseDelModal = () => setShowCourseDelModal(false);
+    const handleShowCourseDelModal = (courseCode: string) => {
+        setShowCourseDelModal(true);
+        setCourseToDel(courseCode);
+    };
+
+    //edit course modal funct.
+    const [showEditCourseModal, setShowEditCourseModal] =
+        useState<boolean>(false);
+
+    //current course being edited
+    const courseToEdit = (courseCode: string) => {
+        const course: Course | undefined = data.find(
+            (course) => course.code === courseCode
+        );
+        if (course) {
+            setEditableCourse(course);
+        }
+        //set course to be default if not exist
+    };
+
+    const handleCloseEditCourseModal = () => setShowEditCourseModal(false);
+    const handleShowEditCourseModal = (courseCode: string) => {
+        courseToEdit(courseCode);
+        setShowEditCourseModal(true);
+    };
+
+    const columns = [
+        {
+            accessorKey: "code",
+            header: "code",
+            cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: "name",
+            header: "name",
+            cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: "descr",
+            header: "descr",
+            cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: "credits",
+            header: "credits",
+            cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: "preReq",
+            header: "preReq",
+            cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: "restrict",
+            header: "restrict",
+            cell: (props: TableCellProps<string>) => <p>{props.getValue()}</p>
+        },
+        {
+            accessorKey: "code",
+            cell: (props: TableCellProps<string>) => (
+                <Button
+                    size="sm"
+                    variant="warning"
+                    onClick={() => handleShowEditCourseModal(props.getValue())}
+                >
+                    Edit
+                </Button>
+            )
+        },
+        {
+            accessorKey: "code",
+            cell: (props: TableCellProps<string>) => (
+                <Button
+                    size="sm"
+                    variant="danger"
+                    onClick={() => handleShowCourseDelModal(props.getValue())}
+                >
+                    Delete
+                </Button>
+            )
+        }
+    ];
 
     const table = useReactTable({
         data: data,
@@ -64,6 +139,7 @@ export function TaskTable({ data }: { data: Course[] }): JSX.Element {
         getPaginationRowModel: getPaginationRowModel(),
         getFilteredRowModel: getFilteredRowModel()
     });
+
     return (
         <div className="p-2">
             <TaskTableFilters
@@ -119,6 +195,19 @@ export function TaskTable({ data }: { data: Course[] }): JSX.Element {
                     {">"}
                 </Button>
             </ButtonGroup>
+            <EditCourseModal
+                show={showEditCourseModal}
+                handleClose={handleCloseEditCourseModal}
+                course={editableCourse}
+                editCourse={editCourse}
+                allCourses={data}
+            ></EditCourseModal>
+            <DelCourseWarningModal
+                show={showCourseDelModal}
+                handleClose={handleCloseCourseDelModal}
+                delCourse={delCourse}
+                courseCode={courseToDel}
+            ></DelCourseWarningModal>
         </div>
     );
 }

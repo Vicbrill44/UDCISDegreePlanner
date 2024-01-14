@@ -132,6 +132,22 @@ export function App(): JSX.Element {
         );
     }
 
+    function editCourse(editedCourse: Course) {
+        setAllCourses(
+            allCourses.map(
+                (course: Course): Course =>
+                    course.code === editedCourse.code ? editedCourse : course
+            )
+        );
+    }
+
+    function delCourse(courseCode: string) {
+        const updatedCourses = allCourses.filter(
+            (course) => course.code !== courseCode
+        );
+        setAllCourses(updatedCourses);
+    }
+
     return (
         <div className="body">
             <div className="App">
@@ -174,6 +190,8 @@ export function App(): JSX.Element {
                     show={showCoursesModal}
                     handleClose={handleCloseCoursesModal}
                     allCourses={allCourses}
+                    editCourse={editCourse}
+                    delCourse={delCourse}
                 ></CoursesModal>
                 <AddCourseModal
                     show={showAddCourseModal}

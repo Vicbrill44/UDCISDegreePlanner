@@ -32,18 +32,13 @@ export const HowToText = () => {
                     view it.
                 </h5>
                 <h5 style={{ paddingTop: "15px" }}>
-                    If you want to save your degree plans, make sure to hit the
-                    &quot;Save Degree Plans&quot; button.
+                    You can create a new course by clicking the &quot;Add New
+                    Course&quot; button.
                 </h5>
-            </div>
-            <div className="howtotext_savewarning">
-                <Card bg="danger" text="light" body>
-                    <h5>
-                        Warning: Failing to hit the &quot;Save Degree
-                        Plans&quot; button and exiting the page will rewrite all
-                        of your changes back to the last save.
-                    </h5>
-                </Card>
+                <h5 style={{ paddingTop: "15px" }}>
+                    To edit or delete a course click &quot;Courses&quot; and
+                    find the course you want to edit or delete.
+                </h5>
             </div>
         </div>
     );
