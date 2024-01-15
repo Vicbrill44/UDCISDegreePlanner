@@ -2,207 +2,323 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test --coverage
 
+  console.error
+    Error: Uncaught [TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.]
+        at reportException (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+        at innerInvokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+        at invokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+        at Object.invokeGuardedCallbackDev (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+        at invokeGuardedCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+        at beginWork$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+        at performUnitOfWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.
+        at LinkWithRef (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router-dom/index.tsx:920:11)
+        at renderWithHooks (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+        at updateForwardRef (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:17044:20)
+        at beginWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:19098:16)
+        at HTMLUnknownElement.callCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+        at innerInvokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+        at invokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+        at Object.invokeGuardedCallbackDev (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+        at invokeGuardedCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+        at beginWork$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+        at performUnitOfWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
+        at workLoopSync (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+        at renderRootSync (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
+        at performSyncWorkOnRoot (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
+        at scheduleUpdateOnFiber (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
+        at updateContainer (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
+        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26021:7
+        at unbatchedUpdates (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
+        at legacyRenderSubtreeIntoContainer (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
+        at Object.render (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
+        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@testing-library/react/dist/pure.js:101:25
+        at batchedUpdates$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
+        at act (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
+        at render (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@testing-library/react/dist/pure.js:97:26)
+        at Object.<anonymous> (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.test.tsx:6:11)
+        at Promise.then.completed (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/utils.js:391:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/utils.js:316:10)
+        at _callCircusTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:218:40)
+        at processTicksAndRejections (node:internal/process/task_queues:96:5)
+        at _runTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:155:3)
+        at _runTestsForDescribeBlock (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:66:9)
+        at run (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:25:3)
+        at runAndTransformResultsToJestFormat (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+        at jestAdapter (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+        at runTestInternal (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/runTest.js:389:16)
+        at runTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/runTest.js:475:34)
+        at TestRunner.runTests (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/index.js:111:12)
+        at TestScheduler.scheduleTests (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/TestScheduler.js:333:13)
+        at runJest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/runJest.js:404:19)
+        at _run10000 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/cli/index.js:320:7)
+        at runCLI (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/cli/index.js:173:3)
+        at Object.run (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-cli/build/cli/index.js:155:37)
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+
+  console.error
+    Error: Uncaught [TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.]
+        at reportException (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+        at innerInvokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+        at invokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+        at Object.invokeGuardedCallbackDev (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+        at invokeGuardedCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+        at beginWork$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+        at performUnitOfWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22779:12) TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.
+        at LinkWithRef (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router-dom/index.tsx:920:11)
+        at renderWithHooks (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+        at updateForwardRef (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:17044:20)
+        at beginWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:19098:16)
+        at HTMLUnknownElement.callCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+        at innerInvokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+        at invokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+        at Object.invokeGuardedCallbackDev (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+        at invokeGuardedCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+        at beginWork$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+        at performUnitOfWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
+        at workLoopSync (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+        at renderRootSync (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
+        at performSyncWorkOnRoot (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
+        at scheduleUpdateOnFiber (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
+        at updateContainer (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
+        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26021:7
+        at unbatchedUpdates (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
+        at legacyRenderSubtreeIntoContainer (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
+        at Object.render (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
+        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@testing-library/react/dist/pure.js:101:25
+        at batchedUpdates$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
+        at act (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
+        at render (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@testing-library/react/dist/pure.js:97:26)
+        at Object.<anonymous> (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.test.tsx:6:11)
+        at Promise.then.completed (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/utils.js:391:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/utils.js:316:10)
+        at _callCircusTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:218:40)
+        at processTicksAndRejections (node:internal/process/task_queues:96:5)
+        at _runTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:155:3)
+        at _runTestsForDescribeBlock (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:66:9)
+        at run (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:25:3)
+        at runAndTransformResultsToJestFormat (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+        at jestAdapter (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+        at runTestInternal (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/runTest.js:389:16)
+        at runTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/runTest.js:475:34)
+        at TestRunner.runTests (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/index.js:111:12)
+        at TestScheduler.scheduleTests (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/TestScheduler.js:333:13)
+        at runJest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/runJest.js:404:19)
+        at _run10000 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/cli/index.js:320:7)
+        at runCLI (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/cli/index.js:173:3)
+        at Object.run (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-cli/build/cli/index.js:155:37)
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+
+  console.error
+    Error: Uncaught [Error: useRoutes() may be used only in the context of a <Router> component.]
+        at reportException (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
+        at innerInvokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+        at invokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+        at Object.invokeGuardedCallbackDev (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+        at invokeGuardedCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+        at beginWork$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+        at performUnitOfWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22779:12) Error: useRoutes() may be used only in the context of a <Router> component.
+        at Object.invariant [as UNSAFE_invariant] (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@remix-run/router/history.ts:494:11)
+        at useRoutesImpl (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router/lib/hooks.tsx:353:3)
+        at useRoutes (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router/lib/hooks.tsx:343:10)
+        at Routes (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router/lib/components.tsx:507:10)
+        at renderWithHooks (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+        at mountIndeterminateComponent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
+        at beginWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
+        at HTMLUnknownElement.callCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+        at innerInvokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+        at invokeEventListeners (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+        at Object.invokeGuardedCallbackDev (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+        at invokeGuardedCallback (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+        at beginWork$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+        at performUnitOfWork (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
+        at workLoopSync (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+        at renderRootSync (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
+        at performSyncWorkOnRoot (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
+        at scheduleUpdateOnFiber (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
+        at updateContainer (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
+        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26021:7
+        at unbatchedUpdates (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
+        at legacyRenderSubtreeIntoContainer (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
+        at Object.render (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
+        at /home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@testing-library/react/dist/pure.js:101:25
+        at batchedUpdates$1 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
+        at act (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
+        at render (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@testing-library/react/dist/pure.js:97:26)
+        at Object.<anonymous> (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.test.tsx:6:11)
+        at Promise.then.completed (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/utils.js:391:28)
+        at new Promise (<anonymous>)
+        at callAsyncCircusFn (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/utils.js:316:10)
+        at _callCircusTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:218:40)
+        at processTicksAndRejections (node:internal/process/task_queues:96:5)
+        at _runTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:155:3)
+        at _runTestsForDescribeBlock (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:66:9)
+        at run (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/run.js:25:3)
+        at runAndTransformResultsToJestFormat (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
+        at jestAdapter (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
+        at runTestInternal (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/runTest.js:389:16)
+        at runTest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/runTest.js:475:34)
+        at TestRunner.runTests (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-runner/build/index.js:111:12)
+        at TestScheduler.scheduleTests (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/TestScheduler.js:333:13)
+        at runJest (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/runJest.js:404:19)
+        at _run10000 (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/cli/index.js:320:7)
+        at runCLI (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/@jest/core/build/cli/index.js:173:3)
+        at Object.run (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/jest-cli/build/cli/index.js:155:37)
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+
+  console.error
+    The above error occurred in the <Link> component:
+    
+        at LinkWithRef (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router-dom/index.tsx:907:7)
+        at div
+        at div
+        at div
+        at Header (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/Header.tsx:6:26)
+        at div
+        at div
+        at div
+        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:24:49)
+    
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+
+      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:23)
+      at update.callback (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
+      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
+      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
+      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+
+  console.error
+    The above error occurred in the <Link> component:
+    
+        at LinkWithRef (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router-dom/index.tsx:907:7)
+        at div
+        at div
+        at div
+        at div
+        at div
+        at Header (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/Header.tsx:6:26)
+        at div
+        at div
+        at div
+        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:24:49)
+    
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+
+      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:23)
+      at update.callback (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
+      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
+      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
+      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+
+  console.error
+    The above error occurred in the <Routes> component:
+    
+        at Routes (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/node_modules/react-router/lib/components.tsx:504:3)
+        at div
+        at div
+        at App (/home/runner/work/UDCISDegreePlanner/UDCISDegreePlanner/src/App.tsx:24:49)
+    
+    Consider adding an error boundary to your tree to customize error handling behavior.
+    Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+
+      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:23)
+      at update.callback (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
+      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
+      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
+      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
+      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (70 ms)
+  ✕ renders the course name somewhere (173 ms)
 
   ● renders the course name somewhere
 
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+    TypeError: Cannot destructure property 'basename' of 'React__namespace.useContext(...)' as it is null.
 
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"body"[39m
-        [36m>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"App"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"header_container"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"header_box"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"header_container1"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"ud_logo"[39m
-                  [36m>[39m
-                    [36m<a>[39m
-                      [36m<img[39m
-                        [33malt[39m=[32m"Valopedia's logo design image for a Valorant website"[39m
-                        [33msrc[39m=[32m"ud_logo_sm.png"[39m
-                      [36m/>[39m
-                    [36m</a>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"header_container2"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"dplanner_tag_cont"[39m
-                  [36m>[39m
-                    [36m<h2>[39m
-                      [0mCS Degree Planner | University of Delaware[0m
-                    [36m</h2>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"text_buttons_cont"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"textboxes"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"font_buttons_textboxes"[39m
-                      [36m>[39m
-                        [36m<a>[39m
-                          [36m<h3>[39m
-                            [0mCourses[0m
-                          [36m</h3>[39m
-                        [36m</a>[39m
-                        [36m<a>[39m
-                          [36m<h3>[39m
-                            [0mResources[0m
-                          [36m</h3>[39m
-                        [36m</a>[39m
-                        [36m<a>[39m
-                          [36m<h3>[39m
-                            [0mAbout[0m
-                          [36m</h3>[39m
-                        [36m</a>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"howtotext_container"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"howtotext_info"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"card text-light"[39m
-                  [33mstyle[39m=[32m"background-color: rgb(0, 83, 159);"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"card-body"[39m
-                  [36m>[39m
-                    [36m<h5>[39m
-                      [0mThis tool is used for planning your University of Delaware Computer Science Degree[0m
-                    [36m</h5>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"howtotext_text"[39m
-              [36m>[39m
-                [36m<h5[39m
-                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
-                [36m>[39m
-                  [0mYou are able to create multiple degree plans with the ability to add semesters and courses inside of a degree plan.[0m
-                [36m</h5>[39m
-                [36m<h5[39m
-                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
-                [36m>[39m
-                  [0mGetting Started:[0m
-                [36m</h5>[39m
-                [36m<h5[39m
-                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
-                [36m>[39m
-                  [0mTo get started, press the "Add New Degree Plan" button to open up an overlay where you can populate a new degree plan with semesters and courses.[0m
-                [36m</h5>[39m
-                [36m<h5[39m
-                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
-                [36m>[39m
-                  [0mOnce you are satisfied with your degree plan, hit the "Save Changes" button to return to the main page where you can then click on you newly created degree plan to view it.[0m
-                [36m</h5>[39m
-                [36m<h5[39m
-                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
-                [36m>[39m
-                  [0mYou can create a new course by clicking the "Add New Course" button.[0m
-                [36m</h5>[39m
-                [36m<h5[39m
-                  [33mstyle[39m=[32m"padding-top: 15px;"[39m
-                [36m>[39m
-                  [0mTo edit or delete a course click "Courses" and find the course you want to edit or delete.[0m
-                [36m</h5>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"dp_content"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"Dplist_container"[39m
-              [36m>[39m
-                [36m<div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"dp_cards"[39m
-                  [36m>[39m
-                    [36m<div[39m
-                      [33mclass[39m=[32m"d-flex justify-content-center align-items-center"[39m
-                      [33mstyle[39m=[32m"padding-bottom: 15px;"[39m
-                    [36m>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"card text-light"[39m
-                        [33mstyle[39m=[32m"width: 25rem; background-color: rgb(17, 106, 189);"[39m
-                      [36m>[39m
-                        [36m<a>[39m
-                          [36m<div[39m
-                            [33mclass[39m=[32m"dp_card card-body"[39m
-                          [36m>[39m
-                            [36m<div[39m
-                              [33mclass[39m=[32m"card-title h5"[39m
-                              [33mstyle[39m=[32m"text-align: center;"[39m
-                            [36m>[39m
-                              [0mDegree Plan 1[0m
-                            [36m</div>[39m
-                          [36m</div>[39m
-                        [36m</a>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"AddSaveButtons_container"[39m
-              [36m>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"add_btn btn btn-warning"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mAdd New Degree Plan[0m
-                [36m</button>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-warning"[39m
-                  [33mtype[39m=[32m"button"[39m
-                [36m>[39m
-                  [0mAdd New Course[0m
-                [36m</button>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div />[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+      4 |
+      5 | test("renders the course name somewhere", () => {
+    > 6 |     render(<App />);
+        |           ^
+      7 |     const linkElement = screen.getByText(/CISC275/i);
+      8 |     expect(linkElement).toBeInTheDocument();
+      9 | });
 
-       5 | test("renders the course name somewhere", () => {
-       6 |     render(<App />);
-    >  7 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-       8 |     expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:7:32)
+      at LinkWithRef (node_modules/react-router-dom/index.tsx:920:11)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
+      at updateForwardRef (node_modules/react-dom/cjs/react-dom.development.js:17044:20)
+      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19098:16)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+      at Object.invokeGuardedCallbackDev (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
+      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
+      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
+      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
+      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
+      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
+      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
+      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
+      at node_modules/react-dom/cjs/react-dom.development.js:26021:7
+      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
+      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
+      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
+      at node_modules/@testing-library/react/dist/pure.js:101:25
+      at batchedUpdates$1 (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
+      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
+      at render (node_modules/@testing-library/react/dist/pure.js:97:26)
+      at Object.<anonymous> (src/App.test.tsx:6:11)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
@@ -211,24 +327,26 @@ FAIL src/App.test.tsx
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
 File                             | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                                        
 ---------------------------------|---------|----------|---------|---------|--------------------------------------------------------------------------
-All files                        |   21.56 |       10 |   10.86 |   22.16 |                                                                          
- src                             |   21.18 |       10 |   10.86 |   21.76 |                                                                          
-  AddCourseModal.tsx             |   42.85 |       50 |   28.57 |   42.85 | 42-54,64-67,101-114                                                      
+All files                        |   16.66 |     2.22 |    5.34 |   17.25 |                                                                          
+ src                             |   16.26 |     2.22 |    5.34 |   16.83 |                                                                          
+  AddCourseModal.tsx             |   35.71 |        0 |   14.28 |   35.71 | 42-54,63-67,101-114                                                      
   AddDpSemestersCoursesModal.tsx |   26.92 |        0 |   11.76 |   25.97 | 54-55,72-126,130-138,151-154,162-183,189-204,208-216,234-247,266,287-401 
-  App.tsx                        |   62.68 |    41.66 |   29.16 |   69.49 | 34,99-148                                                                
+  App.tsx                        |   43.28 |    16.66 |    8.33 |   49.15 | 28-39,57,65,88-89,94,102-151                                             
   CSV.tsx                        |       0 |        0 |       0 |       0 | 22-61                                                                    
   CourseSearchDropdown.tsx       |       5 |        0 |       0 |       5 | 14-60                                                                    
   CoursesModal.tsx               |   66.66 |      100 |      50 |   66.66 | 23                                                                       
   DelCourseWarningModal.tsx      |       0 |      100 |       0 |       0 | 18-26                                                                    
-  DpCard.tsx                     |      75 |      100 |   66.66 |      75 | 36                                                                       
+  DpCard.tsx                     |      25 |      100 |       0 |      25 | 15-36                                                                    
   DpDelWarning.tsx               |       0 |      100 |       0 |       0 | 16-24                                                                    
-  DpList.tsx                     |   66.66 |       75 |      50 |   66.66 | 21,24,31                                                                 
+  DpList.tsx                     |       0 |        0 |       0 |       0 | 19-41                                                                    
   DpView.tsx                     |       0 |        0 |       0 |       0 | 27-152                                                                   
   EditCourseModal.tsx            |       0 |        0 |       0 |       0 | 23-97                                                                    
   EditingDp.tsx                  |       0 |        0 |       0 |       0 | 34-386                                                                   
+  Footer.tsx                     |     100 |      100 |     100 |     100 |                                                                          
   Header.tsx                     |     100 |      100 |     100 |     100 |                                                                          
-  HowToTexxt.tsx                 |     100 |      100 |     100 |     100 |                                                                          
+  HowToTexxt.tsx                 |      50 |      100 |       0 |      50 | 6                                                                        
   ImportExport.tsx               |       0 |        0 |       0 |       0 | 5-24                                                                     
+  ResourcesPage.tsx              |      50 |      100 |       0 |      50 | 45-57                                                                    
   TaskTable.tsx                  |       0 |        0 |       0 |       0 | 33-193                                                                   
   TaskTableFilters.tsx           |   11.11 |        0 |       0 |   14.28 | 19-31                                                                    
  src/interfaces                  |     100 |      100 |     100 |     100 |                                                                          
@@ -241,5 +359,5 @@ All files                        |   21.56 |       10 |   10.86 |   22.16 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.56 s
+Time:        3.725 s
 Ran all test suites.
