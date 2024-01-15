@@ -15,6 +15,9 @@ import { HowToText } from "./HowToTexxt";
 import { CoursesModal } from "./CoursesModal";
 import { AddCourseModal } from "./AddCourseModal";
 //import { CourseSearchDropDown } from "./CourseSearchDropdown";
+import { Route, Routes } from "react-router-dom";
+import { ResourcesPage } from "./ResourcesPage";
+import { Footer } from "./Footer";
 
 export function App(): JSX.Element {
     //load in courses
@@ -154,38 +157,57 @@ export function App(): JSX.Element {
                 <div className="header_container">
                     <Header handClick={handleShowCoursesModal}></Header>
                 </div>
-                <HowToText></HowToText>
-                <div className="dp_content">
-                    <div className="Dplist_container">
-                        <DpList
-                            dp={degreePlans}
-                            deleteDp={deleteDp}
-                            editDp={editDegreePlan}
-                            allCourses={allCourses}
-                        ></DpList>
-                    </div>
-                    <div className="AddSaveButtons_container">
-                        <Button
-                            variant="warning"
-                            className="add_btn"
-                            onClick={handleShowAddModal}
-                        >
-                            Add New Degree Plan
-                        </Button>
-                        <Button
-                            variant="warning"
-                            onClick={handleShowAddCourseModal}
-                        >
-                            Add New Course
-                        </Button>
-                    </div>
-                </div>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <div>
+                                <HowToText></HowToText>
+                                <div className="dp_content">
+                                    <div className="Dplist_container">
+                                        <DpList
+                                            dp={degreePlans}
+                                            deleteDp={deleteDp}
+                                            editDp={editDegreePlan}
+                                            allCourses={allCourses}
+                                        ></DpList>
+                                    </div>
+                                    <div className="AddSaveButtons_container">
+                                        <Button
+                                            variant="warning"
+                                            className="add_btn"
+                                            onClick={handleShowAddModal}
+                                        >
+                                            Add New Degree Plan
+                                        </Button>
+                                        <Button
+                                            variant="warning"
+                                            onClick={handleShowAddCourseModal}
+                                        >
+                                            Add New Course
+                                        </Button>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    ></Route>
+                    <Route
+                        path="/resources"
+                        element={<ResourcesPage></ResourcesPage>}
+                    ></Route>
+                </Routes>
                 <AddDpSemestersCoursesModal
                     show={showAddModal}
                     handleClose={handleCloseAddModal}
                     addDp={addDp}
                     allCourses={allCourses}
                 ></AddDpSemestersCoursesModal>
+                <AddCourseModal
+                    show={showAddCourseModal}
+                    handleClose={handleCloseAddCourseModal}
+                    addCourse={addCourse}
+                    allCourses={allCourses}
+                ></AddCourseModal>
                 <CoursesModal
                     show={showCoursesModal}
                     handleClose={handleCloseCoursesModal}
@@ -193,12 +215,9 @@ export function App(): JSX.Element {
                     editCourse={editCourse}
                     delCourse={delCourse}
                 ></CoursesModal>
-                <AddCourseModal
-                    show={showAddCourseModal}
-                    handleClose={handleCloseAddCourseModal}
-                    addCourse={addCourse}
-                    allCourses={allCourses}
-                ></AddCourseModal>
+                <footer className="footer_container">
+                    <Footer></Footer>
+                </footer>
             </div>
         </div>
     );
