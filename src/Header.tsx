@@ -1,18 +1,19 @@
 /* eslint-disable no-extra-parens */
 import React from "react";
 import blueHensImage from "./assets/ud_logo_sm.png";
+import { Link } from "react-router-dom";
 
 export const Header = ({ handClick }: { handClick: () => void }) => {
     return (
         <div className="header_box">
             <div className="header_container1">
                 <div className="ud_logo">
-                    <a>
+                    <Link to={"/"}>
                         <img
                             src={blueHensImage}
                             alt="Valopedia's logo design image for a Valorant website"
                         />
-                    </a>
+                    </Link>
                 </div>
             </div>
 
@@ -27,12 +28,12 @@ export const Header = ({ handClick }: { handClick: () => void }) => {
                             <a>
                                 <h3 onClick={handClick}>Courses</h3>
                             </a>
-                            <a>
+                            <Link
+                                to={"/resources"}
+                                style={{ textDecoration: "none" }}
+                            >
                                 <h3>Resources</h3>
-                            </a>
-                            <a>
-                                <h3>About</h3>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>

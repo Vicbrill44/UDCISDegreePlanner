@@ -37,7 +37,7 @@ export const HowToText = () => {
                 </h5>
                 <h5 style={{ paddingTop: "15px" }}>
                     To edit or delete a course click &quot;Courses&quot; and
-                    find the course you want to edit or delete.
+                    search for the course you want to edit or delete.
                 </h5>
             </div>
         </div>
