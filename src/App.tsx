@@ -159,7 +159,7 @@ export function App(): JSX.Element {
                 </div>
                 <Routes>
                     <Route
-                        path="/"
+                        path="/UDCISDegreePlanner"
                         element={
                             <div>
                                 <HowToText></HowToText>
@@ -192,7 +192,7 @@ export function App(): JSX.Element {
                         }
                     ></Route>
                     <Route
-                        path="/resources"
+                        path="/UDCISDegreePlanner/resources"
                         element={<ResourcesPage></ResourcesPage>}
                     ></Route>
                 </Routes>
