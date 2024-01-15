@@ -8,7 +8,7 @@ export const Header = ({ handClick }: { handClick: () => void }) => {
         <div className="header_box">
             <div className="header_container1">
                 <div className="ud_logo">
-                    <Link to={"/"}>
+                    <Link to={"/UDCISDegreePlanner"}>
                         <img
                             src={blueHensImage}
                             alt="Valopedia's logo design image for a Valorant website"
@@ -29,7 +29,7 @@ export const Header = ({ handClick }: { handClick: () => void }) => {
                                 <h3 onClick={handClick}>Courses</h3>
                             </a>
                             <Link
-                                to={"/resources"}
+                                to={"/UDCISDegreePlanner/resources"}
                                 style={{ textDecoration: "none" }}
                             >
                                 <h3>Resources</h3>
