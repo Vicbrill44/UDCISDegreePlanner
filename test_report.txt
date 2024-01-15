@@ -276,7 +276,7 @@
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (173 ms)
+  ✕ renders the course name somewhere (160 ms)
 
   ● renders the course name somewhere
 
